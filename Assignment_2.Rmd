@@ -5,8 +5,44 @@ date: "2023-01-10"
 output: html_document
 ---
 
-# Ocean  
+# 1. Ocean  
  
  ![National Geographic](https://res.cloudinary.com/dtpgi0zck/image/upload/s--IJwO_Hss--/c_fill,h_580,w_860/v1/EducationHub/photos/ocean-waves.webp)
  
+# 2. Table  
+One | Two | Three |
+----- | ----- | ----- | 
+1 | 2 | 3 |
+4 | 5 | 6 |
+7 | 8 | 9 |
+10 | 11 | 12 |
+
+# 3. Sentences
+Middlebury College is in *Vermont*. Vermont is **cold** in the winter.
+
+# 4. Bulleted List
+  -I  
+  -Love  
+  -R  
+
+# 5. Numbered List
+1. I  
+2. Love  
+3. R  
+
+# 6. Link
+[Middlebury Golf](https://athletics.middlebury.edu/sports/mgolf/roster/2021-22)
+ 
+# 7. Multiple
+## Sized
+### Headers
+
+# 8. Superscripts and Subscripts
+log~10~
+10^10^
+
+# 9. Equation
+$$2+2=4$$
+
+# 10. 
  
