@@ -44,5 +44,7 @@ log~10~
 # 9. Equation
 $$2+2=4$$
 
-# 10. 
+# 10. Fencing
+`# This is ~Fencing~`
+
  
