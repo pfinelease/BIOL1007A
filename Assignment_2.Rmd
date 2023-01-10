@@ -1,0 +1,12 @@
+---
+title: "Assignment_2"
+author: "PFL"
+date: "2023-01-10"
+output: html_document
+---
+
+# Ocean  
+ 
+ ![National Geographic](https://res.cloudinary.com/dtpgi0zck/image/upload/s--IJwO_Hss--/c_fill,h_580,w_860/v1/EducationHub/photos/ocean-waves.webp)
+ 
+ 
