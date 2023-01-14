@@ -1,0 +1,64 @@
+---
+title: "Assignment 3"
+author: "PFL"
+date: "2023-01-12"
+output: html_document
+---
+
+## Question 1
+```{r}
+x <- 1.1
+a <- 2.2
+b <- 3.3
+z <- c(x,a,b)
+z
+
+z <- c(x^(a^(b)))
+z
+
+z <- c((x^a)^b)
+z
+
+z <- c((3*x^3) + (2*x^2) + 1)
+z
+```
+
+## Question 2
+```{r}
+TwoA <- c(seq(1:8), rev(seq(1:7)))
+TwoA
+
+TwoB <- rep(x=seq(1:5), times=seq(1:5))
+TwoB
+
+TwoC <- c(rep(rev(seq(1:5)), (seq(1:5))))
+TwoC
+```
+
+## Question 3
+```{r}
+queue <- c("sheep", "fox", "owl", "ant")
+print(queue)
+
+queue <- c(queue, "serpent")
+print(queue)
+
+queue <- queue [- 1]
+print(queue)
+
+queue <- c("donkey", queue)
+queue
+
+queue <- queue [-5]
+queue
+
+queue <- append(queue, 'aphid', after=3)
+queue
+
+queue <- c(queue[1:3], "aphid", queue[4])
+queue
+
+which(queue=='aphid')
+
+```
+
