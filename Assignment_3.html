@@ -374,13 +374,16 @@ z</code></pre>
 <pre class="r"><code>z &lt;- c((3*x^3) + (2*x^2) + 1)
 z</code></pre>
 <pre><code>## [1] 7.413</code></pre>
+<pre class="r"><code>## do not need the c() here</code></pre>
 </div>
 <div id="question-2" class="section level2">
 <h2>Question 2</h2>
 <pre class="r"><code>TwoA &lt;- c(seq(1:8), rev(seq(1:7)))
 TwoA</code></pre>
 <pre><code>##  [1] 1 2 3 4 5 6 7 8 7 6 5 4 3 2 1</code></pre>
-<pre class="r"><code>TwoB &lt;- rep(x=seq(1:5), times=seq(1:5))
+<pre class="r"><code>## a &lt;- c(seq(1,8), seq(from 7, to 1))
+
+TwoB &lt;- rep(x=seq(1:5), times=seq(1:5))
 TwoB</code></pre>
 <pre><code>##  [1] 1 2 2 3 3 3 4 4 4 4 5 5 5 5 5</code></pre>
 <pre class="r"><code>TwoC &lt;- c(rep(rev(seq(1:5)), (seq(1:5))))

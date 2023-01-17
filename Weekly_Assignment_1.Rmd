@@ -100,3 +100,23 @@ This is a guide to setting up a GitHub webpage using RStudio on a Mac. We are go
   -Click on the URL and it should bring you to a webpage that looks identical to what appears when you knit your .Rmd file. 
   
   -If there is an error, ensure that your index file is saved as “index” with a lowercase ‘i’. Try to rename the files. If this still does not work, delete the index html and Rmd files from your computer and RStudio and create new ones using a lowercase ‘i’. 
+
+
+# NOTE
+  -You will need to use a one-time Personal Access Token (PAT) to be able to link your computer to your GitHub account. 
+  
+  -To make this PAT, go to your GitHub account page. 
+  
+  -Click your profile icon in the upper right corner of the screen and then click "Settings".
+  
+  -Scroll all the way down and click "Developer Settings" on the left side of the screen. 
+  
+  -Click "Personal Access Token" --> "Tokens (Classic)" --> "Generate New Token" --> "Classic Option" --> write the name of your project for the "Note" --> "Custom" for "Expiration" --> set expiration date for however long you intend on using GitHub --> check the Repository check box under "Select Scopes" (all sub boxes should be clicked) --> "Generate Token"
+  
+  -Copy and save (securely! You will not be able to access this number again) the entire number that is presented.
+  
+  -Install the `credentials` package by typing the code `install.packages("credentials")`.
+  
+  -Run this code: `git config --global user.email "put github email here"`
+`git config --global user.name "put your name here"`
+`credentials::set_github_pat("put PAT here")` 

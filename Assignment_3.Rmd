@@ -21,12 +21,16 @@ z
 
 z <- c((3*x^3) + (2*x^2) + 1)
 z
+
+## do not need the c() here
 ```
 
 ## Question 2
 ```{r}
 TwoA <- c(seq(1:8), rev(seq(1:7)))
 TwoA
+
+## a <- c(seq(1,8), seq(from 7, to 1))
 
 TwoB <- rep(x=seq(1:5), times=seq(1:5))
 TwoB
