@@ -1,0 +1,102 @@
+---
+title: "Weekly Assignment 1"
+author: "PFL"
+date: "2023-01-16"
+output: html_document
+---
+
+This is a guide to setting up a GitHub webpage using RStudio on a Mac. We are going to walk through multiple downloads and steps to doing this. The order of operation will be as follows: downloading R, RStudio, XCode, homebrew, and git, making a GitHub account, and finally making a webpage. 
+
+# 1 
+  -Check to see the macOS software that your computer is running. To do this, click the Apple symbol in the upper left corner. The current version is Ventura 13.1. If your computer software is not up-to-date, update it. 
+  
+# 2   
+  -Create a folder in your Finder and move this folder to your desktop to ensure the safety of these files. All downloads should be placed into this folder. A safe habit is to name documents with `_` instead of spaces between words. 
+  
+# 3  
+  -Download R and RStudio using this [link](https://posit.co/download/rstudio-desktop/)
+  
+  -To download R, click the “Download and Install R” icon, then “Download R for macOS” in the top box, and finally “R-4.2.2-arm64.pkg”  Find this file in Finder, and follow the instructions to download R onto your launchpad.
+  
+  -To download RStudio, go back to this [link](https://posit.co/download/rstudio-desktop/). Click the “Download RStudio Desktop for Mac” and RStudio will be installed onto your finder. 
+  
+# 4  
+  -Download Xcode using this [link](https://developer.apple.com/download/all/)  
+  
+  -You will be asked to sign in using your Apple ID.
+  
+  -Go to “Command Line Tools for Xcode 14.2” and click the “View Details” option. Download this file. It will be in your Finder. 
+  
+  
+# 5  
+  -Open your Terminal. To do this, click the magnifying glass icon in the upper right corner of your screen, type in “Terminal” and click "return". 
+  
+# 6  
+  -We will now download homebrew using this [link](https://git-scm.com/downloads)
+  
+  -Click the “macOS” option, then click the blue “homebrew” and click the clipboard. This copies the code needed to install Homebrew.
+
+  -Now go to your terminal, paste the code and hit enter. You will be prompted to enter the password for your mac (the letters will not show up). Hit enter, and you will be prompted to hit “Return/Enter” Homebrew should now be downloaded and installed.
+  
+  -If you are prompted to run three commands in your terminal, copy and paste the commands and then run them. It is likely that nothing will happen. 
+  
+# 7  
+  -To know if the previous step worked, we will now install git.
+
+  -Open Terminal, type the code `brew install git` and hit enter/return.
+  
+# 8  
+  -Let’s make a GitHub account.
+
+  -Go to this [link](https://github.com/) 
+
+  -Click “Sign up for GitHub” and complete the process to create your account. 
+  
+# 9  
+  -We will now make a repository on GitHub. 
+  
+  -Click the “+” icon in the upper right corner, and then select new repository. Choose a name (with intent: this will be important later) and a brief description for your repository. Select “Public”, check “Add a README file”, “none” for “.gitignore”, select “MIT License” for the final option, and create your repository. 
+  
+# 10  
+  -We now need to link our GitHub repository to RStudio. 
+
+  -Open RStudio and use the pulldown menu in the upper right corner to select “New Project” and then “Version Control”.Click “Git”.
+  
+  -Go back to your GitHub repository, select the green “Code” option, and then copy the URL for this repository.
+  
+  -Go back to RStudio and paste this URL into the “Repository URL” text box. In the “Project directory name” type in the name of your repository exactly as it appears on GitHub (from step 9). 
+  
+  -Click the “Browse” option and save this into the file that you created in step 2. 
+  
+  -Finally, select “Create Project”.
+
+# 11  
+  -We will now build a webpage portal in RStudio that will be hosted by GitHub. 
+
+  -In RStudio, click the green “+” in the upper left corner and then select “R Markdown”. For “Title”, choose what you want the title of your page to be. Click “Ok”
+  
+  -Click “Knit” in the upper center of the panel and save this file with the name “index” (ensure the ‘i’ is lowercase). It will use the suffix “.Rmd”. 
+  
+  -Click “Knit” again, and an image will appear, cancel this. The file is now saved. 
+  
+  -When changes are made, the file name will appear red in the upper left corner. To save your changes, click “Knit”. 
+
+# 12  
+  -We will now commit these changes from the terminal and upload them to GitHub. 
+  
+  -In RStudio, select the "Terminal" tab. This can be found in the panel that initially has “Console” selected and reads “R is free software…”. 
+
+  -Type `git status` (hit RTRN), `git add -A` (hit RTRN), `git status` (hit RTRN), `git commit -am “first commit”` (hit RTRN), `git status` (hit RTRN), and finally `git push` (hit RTRN). 
+  
+  -Note: when committing changes using `commit -am "___"`, a brief description of what the changes are should go into the parenthesis. 
+  
+# 13  
+  -Your webpage should now be created and should appear the same as when you knit your “index.Rmd” file. Let's make it active on GitHub.
+
+  -Return to GitHub and click on your repository. Click “Settings” → “Pages” (left side of screen) → under “Branch” change “None” to “main”, and click “Save”. 
+  
+  -Within a few minutes, “Your site is live at “___.github.io/”reponame”/” should appear. If it does not, then reload the page. 
+  
+  -Click on the URL and it should bring you to a webpage that looks identical to what appears when you knit your .Rmd file. 
+  
+  -If there is an error, ensure that your index file is saved as “index” with a lowercase ‘i’. Try to rename the files. If this still does not work, delete the index html and Rmd files from your computer and RStudio and create new ones using a lowercase ‘i’. 
