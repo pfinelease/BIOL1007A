@@ -1,0 +1,56 @@
+---
+title: "Weekly Assignment 2"
+author: "PFL"
+date: "2023-01-19"
+output: html_document
+---
+
+### 1  
+
+```{r}
+Type <- c(rep("Control", 25), rep("Treatment", 25))
+Type
+
+Value <- c(rnorm(25, mean=10, sd=1.5), rnorm(25, mean=45, sd=2))
+Value
+
+df <- data.frame(Type, Value)
+df
+
+simData <- function(m1=10, m2=45){
+  Type <- c(rep("Control", 25), rep("Treatment", 25))
+  Value <- c(rnorm(25, mean=m1, sd=1.5), rnorm(25, mean=m2, sd=2))
+  df <- data.frame(Type, Value)
+  return(df)
+}
+simData()
+
+```
+### 2  
+
+```{r}
+output <- simData()
+output
+
+head(output)
+```
+
+### 3  
+
+```{r}
+test <- aov(Value~Type, output)
+summary(test)
+```
+
+### 4  
+
+```{r}
+sum_test = unlist(summary(test))
+names(sum_test)
+sum_test["Pr(>F)1"]
+
+summary(test)[[1]][["Pr(>F)"]][1]
+
+summary(test)[[1]][1, 5]
+```
+

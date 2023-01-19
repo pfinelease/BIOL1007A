@@ -4,6 +4,7 @@ author: "PFL"
 date: "2023-01-19"
 output: html_document
 ---
+### 2  
 
 ```{r}
 my_matrix <- matrix(data=runif(16), nrow=4)
@@ -33,6 +34,11 @@ atomic_vector <- unlist(new_list)
 atomic_vector
 typeof(atomic_vector)
 
+```
+
+### 3  
+
+```{r}
 my_unifs <- runif(n=26, min=0, max=10)
 my_LETTERS <- sample(LETTERS[1:26])
 df <- data.frame(my_unifs, my_LETTERS)
@@ -47,6 +53,5 @@ mean(df$my_unifs, na.rm=T)
 
 colnames(df)[2] <-"my_LETTERS2"
 df
-
 ```
 

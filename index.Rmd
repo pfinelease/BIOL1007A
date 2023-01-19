@@ -24,5 +24,7 @@ output:
 
 [Weekly Assignment 1](Weekly_Assignment_1.html)
 
+[Weekly Assignment 2](Weekly_Assignment_2.html)
+
 
 

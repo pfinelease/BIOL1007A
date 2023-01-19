@@ -13,7 +13,7 @@
 
 <meta name="date" content="2023-01-19" />
 
-<title>Assignment 5</title>
+<title>Weekly Assignment 2</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -350,7 +350,7 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Assignment 5</h1>
+<h1 class="title toc-ignore">Weekly Assignment 2</h1>
 <h4 class="author">PFL</h4>
 <h4 class="date">2023-01-19</h4>
 
@@ -358,202 +358,227 @@ display: none;
 
 
 <div id="section" class="section level3">
-<h3>2</h3>
-<pre class="r"><code>my_matrix &lt;- matrix(data=runif(16), nrow=4)
-my_matrix</code></pre>
-<pre><code>##           [,1]      [,2]      [,3]       [,4]
-## [1,] 0.4490012 0.8039686 0.6582925 0.20248944
-## [2,] 0.7926400 0.6849106 0.1004812 0.22953609
-## [3,] 0.3881305 0.1593375 0.2357223 0.05627527
-## [4,] 0.5887659 0.8762059 0.1683201 0.90833836</code></pre>
-<pre class="r"><code>my_log &lt;- runif(100)
-my_log</code></pre>
-<pre><code>##   [1] 0.13525540 0.29771338 0.80866904 0.38581714 0.20665915 0.05336355
-##   [7] 0.76936441 0.22402357 0.85160348 0.94377628 0.25753207 0.04685197
-##  [13] 0.76488207 0.22782204 0.06568561 0.43160674 0.90581784 0.97743744
-##  [19] 0.20301688 0.87525843 0.95895684 0.91060325 0.49519200 0.58330327
-##  [25] 0.11466423 0.54680943 0.74930318 0.28050129 0.51344651 0.07391346
-##  [31] 0.34992229 0.94569639 0.51404267 0.63160849 0.33893163 0.67388031
-##  [37] 0.28065366 0.27011013 0.99209953 0.68209520 0.60715145 0.80420923
-##  [43] 0.71004028 0.11622182 0.38023023 0.25119320 0.76902466 0.07728235
-##  [49] 0.64325131 0.94958832 0.47767582 0.83503886 0.47219211 0.65815092
-##  [55] 0.74016732 0.91330094 0.29391317 0.78114495 0.47761941 0.10863478
-##  [61] 0.67307423 0.67601505 0.44761435 0.43582319 0.23746727 0.55042790
-##  [67] 0.85866113 0.70420636 0.16433478 0.08000702 0.41572782 0.07023688
-##  [73] 0.52881404 0.96103874 0.15396443 0.71782164 0.27507469 0.43235977
-##  [79] 0.34638329 0.04574131 0.19534388 0.41586076 0.94503044 0.36587303
-##  [85] 0.66440883 0.78162327 0.89534519 0.09496875 0.17877447 0.27874276
-##  [91] 0.58215191 0.43974984 0.41263084 0.77696565 0.87044674 0.42418743
-##  [97] 0.54893836 0.94320211 0.75657660 0.62908559</code></pre>
-<pre class="r"><code>my_logical &lt;- my_log &gt; 0.5
-my_logical</code></pre>
-<pre><code>##   [1] FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE  TRUE  TRUE FALSE FALSE
-##  [13]  TRUE FALSE FALSE FALSE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE FALSE  TRUE
-##  [25] FALSE  TRUE  TRUE FALSE  TRUE FALSE FALSE  TRUE  TRUE  TRUE FALSE  TRUE
-##  [37] FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE  TRUE FALSE
-##  [49]  TRUE  TRUE FALSE  TRUE FALSE  TRUE  TRUE  TRUE FALSE  TRUE FALSE FALSE
-##  [61]  TRUE  TRUE FALSE FALSE FALSE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE
-##  [73]  TRUE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE
-##  [85]  TRUE  TRUE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE  TRUE  TRUE FALSE
-##  [97]  TRUE  TRUE  TRUE  TRUE</code></pre>
-<pre class="r"><code>alphabet &lt;- letters[1:26]
-alphabet</code></pre>
-<pre><code>##  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot; &quot;r&quot; &quot;s&quot;
-## [20] &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
-<pre class="r"><code>my_letters &lt;- sample(alphabet)
-my_letters</code></pre>
-<pre><code>##  [1] &quot;w&quot; &quot;e&quot; &quot;j&quot; &quot;u&quot; &quot;g&quot; &quot;p&quot; &quot;t&quot; &quot;o&quot; &quot;c&quot; &quot;i&quot; &quot;r&quot; &quot;y&quot; &quot;z&quot; &quot;l&quot; &quot;d&quot; &quot;x&quot; &quot;n&quot; &quot;s&quot; &quot;m&quot;
-## [20] &quot;k&quot; &quot;h&quot; &quot;q&quot; &quot;b&quot; &quot;a&quot; &quot;f&quot; &quot;v&quot;</code></pre>
-<pre class="r"><code>list &lt;- list(my_matrix, my_logical, my_letters)
-str(list)</code></pre>
-<pre><code>## List of 3
-##  $ : num [1:4, 1:4] 0.449 0.793 0.388 0.589 0.804 ...
-##  $ : logi [1:100] FALSE FALSE TRUE FALSE FALSE FALSE ...
-##  $ : chr [1:26] &quot;w&quot; &quot;e&quot; &quot;j&quot; &quot;u&quot; ...</code></pre>
-<pre class="r"><code>new_list &lt;- list(my_matrix[2,2], my_logical[2], my_letters[2])
-new_list</code></pre>
-<pre><code>## [[1]]
-## [1] 0.6849106
-## 
-## [[2]]
-## [1] FALSE
-## 
-## [[3]]
-## [1] &quot;e&quot;</code></pre>
-<pre class="r"><code>str(new_list)</code></pre>
-<pre><code>## List of 3
-##  $ : num 0.685
-##  $ : logi FALSE
-##  $ : chr &quot;e&quot;</code></pre>
-<pre class="r"><code>atomic_vector &lt;- unlist(new_list)
-atomic_vector</code></pre>
-<pre><code>## [1] &quot;0.684910592157394&quot; &quot;FALSE&quot;             &quot;e&quot;</code></pre>
-<pre class="r"><code>typeof(atomic_vector)</code></pre>
-<pre><code>## [1] &quot;character&quot;</code></pre>
+<h3>1</h3>
+<pre class="r"><code>Type &lt;- c(rep(&quot;Control&quot;, 25), rep(&quot;Treatment&quot;, 25))
+Type</code></pre>
+<pre><code>##  [1] &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;  
+##  [7] &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;  
+## [13] &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;  
+## [19] &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;  
+## [25] &quot;Control&quot;   &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot;
+## [31] &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot;
+## [37] &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot;
+## [43] &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot;
+## [49] &quot;Treatment&quot; &quot;Treatment&quot;</code></pre>
+<pre class="r"><code>Value &lt;- c(rnorm(25, mean=10, sd=1.5), rnorm(25, mean=45, sd=2))
+Value</code></pre>
+<pre><code>##  [1]  7.666819  9.938615  9.984942  9.733979  9.966880  9.762382  9.235985
+##  [8] 10.705670  8.824392 12.307993  9.406707 10.712964 12.707013  9.904412
+## [15] 10.821303 10.069630  7.609627 11.441628  9.853040  8.566214 11.065662
+## [22] 10.543250 11.533860 11.301770  9.796493 39.984631 47.028118 42.791988
+## [29] 39.373658 43.029968 44.418858 45.703314 47.535604 47.362180 44.985581
+## [36] 46.393797 43.166193 45.938504 45.466676 42.985045 43.291109 44.774514
+## [43] 48.234532 43.649611 45.544426 45.315929 42.967931 43.712658 48.197373
+## [50] 48.806428</code></pre>
+<pre class="r"><code>df &lt;- data.frame(Type, Value)
+df</code></pre>
+<pre><code>##         Type     Value
+## 1    Control  7.666819
+## 2    Control  9.938615
+## 3    Control  9.984942
+## 4    Control  9.733979
+## 5    Control  9.966880
+## 6    Control  9.762382
+## 7    Control  9.235985
+## 8    Control 10.705670
+## 9    Control  8.824392
+## 10   Control 12.307993
+## 11   Control  9.406707
+## 12   Control 10.712964
+## 13   Control 12.707013
+## 14   Control  9.904412
+## 15   Control 10.821303
+## 16   Control 10.069630
+## 17   Control  7.609627
+## 18   Control 11.441628
+## 19   Control  9.853040
+## 20   Control  8.566214
+## 21   Control 11.065662
+## 22   Control 10.543250
+## 23   Control 11.533860
+## 24   Control 11.301770
+## 25   Control  9.796493
+## 26 Treatment 39.984631
+## 27 Treatment 47.028118
+## 28 Treatment 42.791988
+## 29 Treatment 39.373658
+## 30 Treatment 43.029968
+## 31 Treatment 44.418858
+## 32 Treatment 45.703314
+## 33 Treatment 47.535604
+## 34 Treatment 47.362180
+## 35 Treatment 44.985581
+## 36 Treatment 46.393797
+## 37 Treatment 43.166193
+## 38 Treatment 45.938504
+## 39 Treatment 45.466676
+## 40 Treatment 42.985045
+## 41 Treatment 43.291109
+## 42 Treatment 44.774514
+## 43 Treatment 48.234532
+## 44 Treatment 43.649611
+## 45 Treatment 45.544426
+## 46 Treatment 45.315929
+## 47 Treatment 42.967931
+## 48 Treatment 43.712658
+## 49 Treatment 48.197373
+## 50 Treatment 48.806428</code></pre>
+<pre class="r"><code>simData &lt;- function(m1=10, m2=45){
+  Type &lt;- c(rep(&quot;Control&quot;, 25), rep(&quot;Treatment&quot;, 25))
+  Value &lt;- c(rnorm(25, mean=m1, sd=1.5), rnorm(25, mean=m2, sd=2))
+  df &lt;- data.frame(Type, Value)
+  return(df)
+}
+simData()</code></pre>
+<pre><code>##         Type     Value
+## 1    Control 12.356456
+## 2    Control 11.887140
+## 3    Control 12.771007
+## 4    Control 10.069431
+## 5    Control 11.115390
+## 6    Control  9.863596
+## 7    Control  9.621919
+## 8    Control 10.477848
+## 9    Control  9.364512
+## 10   Control  6.933869
+## 11   Control  9.597049
+## 12   Control  8.963694
+## 13   Control  8.518847
+## 14   Control 12.681928
+## 15   Control  9.707860
+## 16   Control  5.330808
+## 17   Control  6.722641
+## 18   Control 10.638523
+## 19   Control 10.254365
+## 20   Control 10.183178
+## 21   Control 11.822173
+## 22   Control  9.539576
+## 23   Control  9.945042
+## 24   Control  8.917836
+## 25   Control 11.622949
+## 26 Treatment 44.929598
+## 27 Treatment 45.205119
+## 28 Treatment 42.813068
+## 29 Treatment 46.106822
+## 30 Treatment 41.607926
+## 31 Treatment 45.970637
+## 32 Treatment 45.438435
+## 33 Treatment 43.524154
+## 34 Treatment 45.066592
+## 35 Treatment 46.644380
+## 36 Treatment 44.262294
+## 37 Treatment 38.514486
+## 38 Treatment 50.444325
+## 39 Treatment 43.951624
+## 40 Treatment 43.758261
+## 41 Treatment 44.636834
+## 42 Treatment 44.518752
+## 43 Treatment 48.452501
+## 44 Treatment 44.401395
+## 45 Treatment 43.070178
+## 46 Treatment 43.464447
+## 47 Treatment 45.949234
+## 48 Treatment 43.780150
+## 49 Treatment 41.733432
+## 50 Treatment 42.461395</code></pre>
 </div>
 <div id="section-1" class="section level3">
+<h3>2</h3>
+<pre class="r"><code>output &lt;- simData()
+output</code></pre>
+<pre><code>##         Type     Value
+## 1    Control  9.903887
+## 2    Control 11.372516
+## 3    Control  8.560474
+## 4    Control  8.041286
+## 5    Control  7.902951
+## 6    Control 10.215810
+## 7    Control 12.049721
+## 8    Control  9.524520
+## 9    Control 11.657091
+## 10   Control 10.252266
+## 11   Control  8.591836
+## 12   Control  9.142899
+## 13   Control 11.531389
+## 14   Control 11.705793
+## 15   Control 10.775340
+## 16   Control  9.400681
+## 17   Control 11.457927
+## 18   Control 10.795641
+## 19   Control 14.706040
+## 20   Control 13.293526
+## 21   Control 10.990157
+## 22   Control 10.363380
+## 23   Control 11.027078
+## 24   Control 10.234680
+## 25   Control  8.697170
+## 26 Treatment 45.613915
+## 27 Treatment 45.454249
+## 28 Treatment 43.634115
+## 29 Treatment 44.100427
+## 30 Treatment 48.312955
+## 31 Treatment 43.268474
+## 32 Treatment 46.097798
+## 33 Treatment 46.668629
+## 34 Treatment 48.625510
+## 35 Treatment 44.478502
+## 36 Treatment 38.633316
+## 37 Treatment 45.550578
+## 38 Treatment 42.702291
+## 39 Treatment 45.049904
+## 40 Treatment 46.007980
+## 41 Treatment 48.278775
+## 42 Treatment 44.481010
+## 43 Treatment 44.887742
+## 44 Treatment 48.902810
+## 45 Treatment 46.312059
+## 46 Treatment 42.094019
+## 47 Treatment 46.139663
+## 48 Treatment 43.804667
+## 49 Treatment 45.551561
+## 50 Treatment 43.653042</code></pre>
+<pre class="r"><code>head(output)</code></pre>
+<pre><code>##      Type     Value
+## 1 Control  9.903887
+## 2 Control 11.372516
+## 3 Control  8.560474
+## 4 Control  8.041286
+## 5 Control  7.902951
+## 6 Control 10.215810</code></pre>
+</div>
+<div id="section-2" class="section level3">
 <h3>3</h3>
-<pre class="r"><code>my_unifs &lt;- runif(n=26, min=0, max=10)
-my_LETTERS &lt;- sample(LETTERS[1:26])
-df &lt;- data.frame(my_unifs, my_LETTERS)
-df</code></pre>
-<pre><code>##     my_unifs my_LETTERS
-## 1  0.2492302          V
-## 2  3.4295033          Y
-## 3  0.8901694          J
-## 4  1.9502421          Q
-## 5  3.7571109          R
-## 6  7.2096783          C
-## 7  5.6886041          L
-## 8  0.5603229          U
-## 9  8.8599057          W
-## 10 2.3331254          Z
-## 11 0.9420393          P
-## 12 4.8703023          O
-## 13 2.4055528          S
-## 14 8.1315041          E
-## 15 8.0646036          B
-## 16 2.4952382          G
-## 17 0.8101566          F
-## 18 3.6906475          X
-## 19 8.1070472          H
-## 20 3.3355208          T
-## 21 7.8370056          N
-## 22 2.1382443          M
-## 23 2.9778917          I
-## 24 1.5781505          D
-## 25 2.9854063          A
-## 26 3.8531848          K</code></pre>
-<pre class="r"><code>df[sample(nrow(df),4,),1] &lt;- NA
-df</code></pre>
-<pre><code>##     my_unifs my_LETTERS
-## 1  0.2492302          V
-## 2         NA          Y
-## 3  0.8901694          J
-## 4  1.9502421          Q
-## 5  3.7571109          R
-## 6         NA          C
-## 7  5.6886041          L
-## 8  0.5603229          U
-## 9  8.8599057          W
-## 10 2.3331254          Z
-## 11 0.9420393          P
-## 12 4.8703023          O
-## 13 2.4055528          S
-## 14 8.1315041          E
-## 15        NA          B
-## 16 2.4952382          G
-## 17 0.8101566          F
-## 18 3.6906475          X
-## 19        NA          H
-## 20 3.3355208          T
-## 21 7.8370056          N
-## 22 2.1382443          M
-## 23 2.9778917          I
-## 24 1.5781505          D
-## 25 2.9854063          A
-## 26 3.8531848          K</code></pre>
-<pre class="r"><code>which(is.na(df))</code></pre>
-<pre><code>## [1]  2  6 15 19</code></pre>
-<pre class="r"><code>df[order(df$my_LETTERS), ]</code></pre>
-<pre><code>##     my_unifs my_LETTERS
-## 25 2.9854063          A
-## 15        NA          B
-## 6         NA          C
-## 24 1.5781505          D
-## 14 8.1315041          E
-## 17 0.8101566          F
-## 16 2.4952382          G
-## 19        NA          H
-## 23 2.9778917          I
-## 3  0.8901694          J
-## 26 3.8531848          K
-## 7  5.6886041          L
-## 22 2.1382443          M
-## 21 7.8370056          N
-## 12 4.8703023          O
-## 11 0.9420393          P
-## 4  1.9502421          Q
-## 5  3.7571109          R
-## 13 2.4055528          S
-## 20 3.3355208          T
-## 8  0.5603229          U
-## 1  0.2492302          V
-## 9  8.8599057          W
-## 18 3.6906475          X
-## 2         NA          Y
-## 10 2.3331254          Z</code></pre>
-<pre class="r"><code>mean(df$my_unifs, na.rm=T)</code></pre>
-<pre><code>## [1] 3.288162</code></pre>
-<pre class="r"><code>colnames(df)[2] &lt;-&quot;my_LETTERS2&quot;
-df</code></pre>
-<pre><code>##     my_unifs my_LETTERS2
-## 1  0.2492302           V
-## 2         NA           Y
-## 3  0.8901694           J
-## 4  1.9502421           Q
-## 5  3.7571109           R
-## 6         NA           C
-## 7  5.6886041           L
-## 8  0.5603229           U
-## 9  8.8599057           W
-## 10 2.3331254           Z
-## 11 0.9420393           P
-## 12 4.8703023           O
-## 13 2.4055528           S
-## 14 8.1315041           E
-## 15        NA           B
-## 16 2.4952382           G
-## 17 0.8101566           F
-## 18 3.6906475           X
-## 19        NA           H
-## 20 3.3355208           T
-## 21 7.8370056           N
-## 22 2.1382443           M
-## 23 2.9778917           I
-## 24 1.5781505           D
-## 25 2.9854063           A
-## 26 3.8531848           K</code></pre>
+<pre class="r"><code>test &lt;- aov(Value~Type, output)
+summary(test)</code></pre>
+<pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)    
+## Type         1  15003   15003    3898 &lt;2e-16 ***
+## Residuals   48    185       4                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+</div>
+<div id="section-3" class="section level3">
+<h3>4</h3>
+<pre class="r"><code>sum_test = unlist(summary(test))
+names(sum_test)</code></pre>
+<pre><code>##  [1] &quot;Df1&quot;      &quot;Df2&quot;      &quot;Sum Sq1&quot;  &quot;Sum Sq2&quot;  &quot;Mean Sq1&quot; &quot;Mean Sq2&quot;
+##  [7] &quot;F value1&quot; &quot;F value2&quot; &quot;Pr(&gt;F)1&quot;  &quot;Pr(&gt;F)2&quot;</code></pre>
+<pre class="r"><code>sum_test[&quot;Pr(&gt;F)1&quot;]</code></pre>
+<pre><code>##      Pr(&gt;F)1 
+## 1.270766e-47</code></pre>
+<pre class="r"><code>summary(test)[[1]][[&quot;Pr(&gt;F)&quot;]][1]</code></pre>
+<pre><code>## [1] 1.270766e-47</code></pre>
+<pre class="r"><code>summary(test)[[1]][1, 5]</code></pre>
+<pre><code>## [1] 1.270766e-47</code></pre>
 </div>
 
 
