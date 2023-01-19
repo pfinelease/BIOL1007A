@@ -359,41 +359,196 @@ display: none;
 
 <pre class="r"><code>my_matrix &lt;- matrix(data=runif(16), nrow=4)
 my_matrix</code></pre>
-<pre><code>##            [,1]      [,2]      [,3]      [,4]
-## [1,] 0.65400621 0.8455971 0.9956292 0.5353802
-## [2,] 0.02177371 0.6895721 0.9226661 0.4347192
-## [3,] 0.30711518 0.9267425 0.6545901 0.6391268
-## [4,] 0.24602083 0.3297439 0.9122777 0.2676978</code></pre>
+<pre><code>##           [,1]       [,2]       [,3]      [,4]
+## [1,] 0.8467924 0.01686376 0.34578007 0.3595427
+## [2,] 0.6231012 0.08612600 0.87438332 0.6447485
+## [3,] 0.7669179 0.19148264 0.52179370 0.3289717
+## [4,] 0.7198174 0.95142001 0.07893319 0.1689580</code></pre>
 <pre class="r"><code>my_log &lt;- runif(100)
 my_log</code></pre>
-<pre><code>##   [1] 0.01723147 0.83689884 0.92997928 0.68242905 0.86378774 0.72734291
-##   [7] 0.88557039 0.13059866 0.97182737 0.51156026 0.84918643 0.24511104
-##  [13] 0.86923635 0.21167157 0.63343666 0.28310687 0.41491114 0.80284326
-##  [19] 0.45681989 0.85952446 0.66384601 0.80611074 0.09800096 0.98826320
-##  [25] 0.21548546 0.83509129 0.77708567 0.32600361 0.05535283 0.95543476
-##  [31] 0.96499165 0.06833031 0.62963245 0.52867599 0.66183934 0.01723438
-##  [37] 0.03691701 0.07187698 0.81703306 0.41563486 0.73599326 0.58708511
-##  [43] 0.56274398 0.24043128 0.72551360 0.58258571 0.34812855 0.15023774
-##  [49] 0.84950271 0.62307136 0.63487268 0.61713328 0.43814104 0.59654891
-##  [55] 0.50795250 0.07107044 0.37180585 0.45945906 0.70787865 0.26804973
-##  [61] 0.86303958 0.20669812 0.95285872 0.75180204 0.61461082 0.07124451
-##  [67] 0.38131370 0.39603340 0.89452015 0.97003813 0.50631905 0.95346637
-##  [73] 0.64172571 0.49757729 0.93964418 0.96765548 0.34749012 0.76974011
-##  [79] 0.32795342 0.61159183 0.87220828 0.34339820 0.15481746 0.57870362
-##  [85] 0.56763582 0.69986680 0.07439568 0.56861254 0.81051381 0.46897801
-##  [91] 0.18341044 0.35075040 0.62069358 0.21387551 0.15913090 0.34297897
-##  [97] 0.92333734 0.68172682 0.35693170 0.61447615</code></pre>
+<pre><code>##   [1] 0.89557158 0.26677067 0.22022143 0.41064331 0.16992565 0.48609464
+##   [7] 0.60194912 0.63271058 0.86434493 0.55921282 0.29095073 0.25433095
+##  [13] 0.34976058 0.04003990 0.44226317 0.98847823 0.40319875 0.31711845
+##  [19] 0.47279448 0.47562405 0.12624441 0.90136449 0.58440746 0.81313020
+##  [25] 0.51303774 0.33726083 0.07799946 0.63440665 0.36694552 0.07215982
+##  [31] 0.82902313 0.19234149 0.43384712 0.85904675 0.16933937 0.62872617
+##  [37] 0.40807830 0.87511289 0.37958421 0.64327065 0.82452201 0.39927067
+##  [43] 0.66627632 0.61360103 0.64985894 0.16486168 0.69114153 0.03219687
+##  [49] 0.31739856 0.60199442 0.80707563 0.48952880 0.28856996 0.24319288
+##  [55] 0.56304957 0.20547767 0.59088481 0.44210317 0.57873625 0.99471868
+##  [61] 0.35015367 0.95297635 0.82386887 0.79230038 0.68423533 0.83132026
+##  [67] 0.89582333 0.91748540 0.82168236 0.11037456 0.44922254 0.56292801
+##  [73] 0.90086923 0.61178680 0.95035796 0.42237790 0.91526761 0.36854111
+##  [79] 0.96314710 0.87527377 0.41292990 0.57857750 0.79881134 0.79283874
+##  [85] 0.30081645 0.15954867 0.74658594 0.06764885 0.46331116 0.85243577
+##  [91] 0.92617077 0.08930124 0.62918864 0.46496057 0.15697885 0.84219861
+##  [97] 0.75072639 0.48071306 0.02579093 0.17385511</code></pre>
 <pre class="r"><code>my_logical &lt;- my_log &gt; 0.5
 my_logical</code></pre>
-<pre><code>##   [1] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE FALSE
-##  [13]  TRUE FALSE  TRUE FALSE FALSE  TRUE FALSE  TRUE  TRUE  TRUE FALSE  TRUE
-##  [25] FALSE  TRUE  TRUE FALSE FALSE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE FALSE
-##  [37] FALSE FALSE  TRUE FALSE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE FALSE FALSE
-##  [49]  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE FALSE FALSE FALSE  TRUE FALSE
-##  [61]  TRUE FALSE  TRUE  TRUE  TRUE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE
-##  [73]  TRUE FALSE  TRUE  TRUE FALSE  TRUE FALSE  TRUE  TRUE FALSE FALSE  TRUE
-##  [85]  TRUE  TRUE FALSE  TRUE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE
-##  [97]  TRUE  TRUE FALSE  TRUE</code></pre>
+<pre><code>##   [1]  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE FALSE
+##  [13] FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE
+##  [25]  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE  TRUE
+##  [37] FALSE  TRUE FALSE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE FALSE  TRUE FALSE
+##  [49] FALSE  TRUE  TRUE FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE  TRUE  TRUE
+##  [61] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE
+##  [73]  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE
+##  [85] FALSE FALSE  TRUE FALSE FALSE  TRUE  TRUE FALSE  TRUE FALSE FALSE  TRUE
+##  [97]  TRUE FALSE FALSE FALSE</code></pre>
+<pre class="r"><code>alphabet &lt;- letters[1:26]
+alphabet</code></pre>
+<pre><code>##  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot; &quot;r&quot; &quot;s&quot;
+## [20] &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
+<pre class="r"><code>my_letters &lt;- sample(alphabet)
+my_letters</code></pre>
+<pre><code>##  [1] &quot;l&quot; &quot;t&quot; &quot;q&quot; &quot;d&quot; &quot;a&quot; &quot;i&quot; &quot;f&quot; &quot;e&quot; &quot;c&quot; &quot;n&quot; &quot;r&quot; &quot;m&quot; &quot;o&quot; &quot;x&quot; &quot;g&quot; &quot;h&quot; &quot;u&quot; &quot;y&quot; &quot;p&quot;
+## [20] &quot;k&quot; &quot;s&quot; &quot;w&quot; &quot;v&quot; &quot;z&quot; &quot;j&quot; &quot;b&quot;</code></pre>
+<pre class="r"><code>list &lt;- list(my_matrix, my_logical, my_letters)
+str(list)</code></pre>
+<pre><code>## List of 3
+##  $ : num [1:4, 1:4] 0.8468 0.6231 0.7669 0.7198 0.0169 ...
+##  $ : logi [1:100] TRUE FALSE FALSE FALSE FALSE FALSE ...
+##  $ : chr [1:26] &quot;l&quot; &quot;t&quot; &quot;q&quot; &quot;d&quot; ...</code></pre>
+<pre class="r"><code>new_list &lt;- list(my_matrix[2,2], my_logical[2], my_letters[2])
+new_list</code></pre>
+<pre><code>## [[1]]
+## [1] 0.086126
+## 
+## [[2]]
+## [1] FALSE
+## 
+## [[3]]
+## [1] &quot;t&quot;</code></pre>
+<pre class="r"><code>str(new_list)</code></pre>
+<pre><code>## List of 3
+##  $ : num 0.0861
+##  $ : logi FALSE
+##  $ : chr &quot;t&quot;</code></pre>
+<pre class="r"><code>atomic_vector &lt;- unlist(new_list)
+atomic_vector</code></pre>
+<pre><code>## [1] &quot;0.086125997826457&quot; &quot;FALSE&quot;             &quot;t&quot;</code></pre>
+<pre class="r"><code>typeof(atomic_vector)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code>my_unifs &lt;- runif(n=26, min=0, max=10)
+my_LETTERS &lt;- sample(LETTERS[1:26])
+df &lt;- data.frame(my_unifs, my_LETTERS)
+df</code></pre>
+<pre><code>##      my_unifs my_LETTERS
+## 1  0.95873617          J
+## 2  8.74179905          A
+## 3  6.16605224          E
+## 4  4.00173479          B
+## 5  8.52405774          L
+## 6  3.75384348          Y
+## 7  2.63260584          T
+## 8  4.98110256          W
+## 9  6.95634926          D
+## 10 3.68333221          V
+## 11 0.66983272          C
+## 12 0.54078480          M
+## 13 0.05186909          N
+## 14 0.71792016          X
+## 15 2.50758023          K
+## 16 3.09215113          Q
+## 17 0.11344387          I
+## 18 4.69965679          Z
+## 19 0.94465732          H
+## 20 3.87371560          S
+## 21 5.59533748          O
+## 22 5.33748313          U
+## 23 4.62337335          R
+## 24 9.91037439          G
+## 25 1.35766798          F
+## 26 8.34270377          P</code></pre>
+<pre class="r"><code>df[sample(nrow(df),4,),1] &lt;- NA
+df</code></pre>
+<pre><code>##      my_unifs my_LETTERS
+## 1          NA          J
+## 2  8.74179905          A
+## 3  6.16605224          E
+## 4  4.00173479          B
+## 5  8.52405774          L
+## 6          NA          Y
+## 7  2.63260584          T
+## 8  4.98110256          W
+## 9  6.95634926          D
+## 10 3.68333221          V
+## 11 0.66983272          C
+## 12 0.54078480          M
+## 13 0.05186909          N
+## 14 0.71792016          X
+## 15 2.50758023          K
+## 16 3.09215113          Q
+## 17         NA          I
+## 18 4.69965679          Z
+## 19 0.94465732          H
+## 20 3.87371560          S
+## 21 5.59533748          O
+## 22         NA          U
+## 23 4.62337335          R
+## 24 9.91037439          G
+## 25 1.35766798          F
+## 26 8.34270377          P</code></pre>
+<pre class="r"><code>which(is.na(df))</code></pre>
+<pre><code>## [1]  1  6 17 22</code></pre>
+<pre class="r"><code>df[order(df$my_LETTERS), ]</code></pre>
+<pre><code>##      my_unifs my_LETTERS
+## 2  8.74179905          A
+## 4  4.00173479          B
+## 11 0.66983272          C
+## 9  6.95634926          D
+## 3  6.16605224          E
+## 25 1.35766798          F
+## 24 9.91037439          G
+## 19 0.94465732          H
+## 17         NA          I
+## 1          NA          J
+## 15 2.50758023          K
+## 5  8.52405774          L
+## 12 0.54078480          M
+## 13 0.05186909          N
+## 21 5.59533748          O
+## 26 8.34270377          P
+## 16 3.09215113          Q
+## 23 4.62337335          R
+## 20 3.87371560          S
+## 7  2.63260584          T
+## 22         NA          U
+## 10 3.68333221          V
+## 8  4.98110256          W
+## 14 0.71792016          X
+## 6          NA          Y
+## 18 4.69965679          Z</code></pre>
+<pre class="r"><code>mean(df$my_unifs, na.rm=T)</code></pre>
+<pre><code>## [1] 4.209757</code></pre>
+<pre class="r"><code>colnames(df)[2] &lt;-&quot;my_LETTERS2&quot;
+df</code></pre>
+<pre><code>##      my_unifs my_LETTERS2
+## 1          NA           J
+## 2  8.74179905           A
+## 3  6.16605224           E
+## 4  4.00173479           B
+## 5  8.52405774           L
+## 6          NA           Y
+## 7  2.63260584           T
+## 8  4.98110256           W
+## 9  6.95634926           D
+## 10 3.68333221           V
+## 11 0.66983272           C
+## 12 0.54078480           M
+## 13 0.05186909           N
+## 14 0.71792016           X
+## 15 2.50758023           K
+## 16 3.09215113           Q
+## 17         NA           I
+## 18 4.69965679           Z
+## 19 0.94465732           H
+## 20 3.87371560           S
+## 21 5.59533748           O
+## 22         NA           U
+## 23 4.62337335           R
+## 24 9.91037439           G
+## 25 1.35766798           F
+## 26 8.34270377           P</code></pre>
 
 
 

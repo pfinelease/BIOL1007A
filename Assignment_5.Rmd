@@ -15,9 +15,38 @@ my_log
 my_logical <- my_log > 0.5
 my_logical
 
+alphabet <- letters[1:26]
+alphabet
+
+my_letters <- sample(alphabet)
+my_letters
+
+list <- list(my_matrix, my_logical, my_letters)
+str(list)
 
 
+new_list <- list(my_matrix[2,2], my_logical[2], my_letters[2])
+new_list
+str(new_list)
 
+atomic_vector <- unlist(new_list)
+atomic_vector
+typeof(atomic_vector)
+
+my_unifs <- runif(n=26, min=0, max=10)
+my_LETTERS <- sample(LETTERS[1:26])
+df <- data.frame(my_unifs, my_LETTERS)
+df
+df[sample(nrow(df),4,),1] <- NA
+df
+which(is.na(df))
+
+df[order(df$my_LETTERS), ]
+
+mean(df$my_unifs, na.rm=T)
+
+colnames(df)[2] <-"my_LETTERS2"
+df
 
 ```
 
