@@ -1,0 +1,23 @@
+---
+title: "Assignment 5"
+author: "PFL"
+date: "2023-01-19"
+output: html_document
+---
+
+```{r}
+my_matrix <- matrix(data=runif(16), nrow=4)
+my_matrix
+
+my_log <- runif(100)
+my_log
+
+my_logical <- my_log > 0.5
+my_logical
+
+
+
+
+
+```
+

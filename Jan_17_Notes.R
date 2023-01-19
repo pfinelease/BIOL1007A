@@ -19,7 +19,7 @@ b <- c("purple", "green")
 typeof(b)
 
 d <- c(a,b)
-
+d
 
 #### Comparison operators yeild a logical result
 
