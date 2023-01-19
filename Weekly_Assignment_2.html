@@ -372,67 +372,67 @@ Type</code></pre>
 ## [49] &quot;Treatment&quot; &quot;Treatment&quot;</code></pre>
 <pre class="r"><code>Value &lt;- c(rnorm(25, mean=10, sd=1.5), rnorm(25, mean=45, sd=2))
 Value</code></pre>
-<pre><code>##  [1]  7.666819  9.938615  9.984942  9.733979  9.966880  9.762382  9.235985
-##  [8] 10.705670  8.824392 12.307993  9.406707 10.712964 12.707013  9.904412
-## [15] 10.821303 10.069630  7.609627 11.441628  9.853040  8.566214 11.065662
-## [22] 10.543250 11.533860 11.301770  9.796493 39.984631 47.028118 42.791988
-## [29] 39.373658 43.029968 44.418858 45.703314 47.535604 47.362180 44.985581
-## [36] 46.393797 43.166193 45.938504 45.466676 42.985045 43.291109 44.774514
-## [43] 48.234532 43.649611 45.544426 45.315929 42.967931 43.712658 48.197373
-## [50] 48.806428</code></pre>
+<pre><code>##  [1] 13.111860 10.883014  9.299256 12.088469  6.444741 11.101889 10.382992
+##  [8]  9.827135 11.192466  9.956028 10.424633 11.916968 10.294950 11.394829
+## [15] 10.807339  7.047105  8.633727  9.021036 10.802154 10.186368 11.170881
+## [22] 11.784644  9.069160  9.802734 11.251387 43.294235 46.049249 43.827738
+## [29] 44.197391 44.638253 47.295449 44.464347 41.965703 45.296145 40.942366
+## [36] 42.797237 45.250808 49.015239 44.348696 44.747482 44.262052 49.311574
+## [43] 44.393520 43.776127 45.508652 47.106560 46.340907 42.986695 41.927759
+## [50] 47.503000</code></pre>
 <pre class="r"><code>df &lt;- data.frame(Type, Value)
 df</code></pre>
 <pre><code>##         Type     Value
-## 1    Control  7.666819
-## 2    Control  9.938615
-## 3    Control  9.984942
-## 4    Control  9.733979
-## 5    Control  9.966880
-## 6    Control  9.762382
-## 7    Control  9.235985
-## 8    Control 10.705670
-## 9    Control  8.824392
-## 10   Control 12.307993
-## 11   Control  9.406707
-## 12   Control 10.712964
-## 13   Control 12.707013
-## 14   Control  9.904412
-## 15   Control 10.821303
-## 16   Control 10.069630
-## 17   Control  7.609627
-## 18   Control 11.441628
-## 19   Control  9.853040
-## 20   Control  8.566214
-## 21   Control 11.065662
-## 22   Control 10.543250
-## 23   Control 11.533860
-## 24   Control 11.301770
-## 25   Control  9.796493
-## 26 Treatment 39.984631
-## 27 Treatment 47.028118
-## 28 Treatment 42.791988
-## 29 Treatment 39.373658
-## 30 Treatment 43.029968
-## 31 Treatment 44.418858
-## 32 Treatment 45.703314
-## 33 Treatment 47.535604
-## 34 Treatment 47.362180
-## 35 Treatment 44.985581
-## 36 Treatment 46.393797
-## 37 Treatment 43.166193
-## 38 Treatment 45.938504
-## 39 Treatment 45.466676
-## 40 Treatment 42.985045
-## 41 Treatment 43.291109
-## 42 Treatment 44.774514
-## 43 Treatment 48.234532
-## 44 Treatment 43.649611
-## 45 Treatment 45.544426
-## 46 Treatment 45.315929
-## 47 Treatment 42.967931
-## 48 Treatment 43.712658
-## 49 Treatment 48.197373
-## 50 Treatment 48.806428</code></pre>
+## 1    Control 13.111860
+## 2    Control 10.883014
+## 3    Control  9.299256
+## 4    Control 12.088469
+## 5    Control  6.444741
+## 6    Control 11.101889
+## 7    Control 10.382992
+## 8    Control  9.827135
+## 9    Control 11.192466
+## 10   Control  9.956028
+## 11   Control 10.424633
+## 12   Control 11.916968
+## 13   Control 10.294950
+## 14   Control 11.394829
+## 15   Control 10.807339
+## 16   Control  7.047105
+## 17   Control  8.633727
+## 18   Control  9.021036
+## 19   Control 10.802154
+## 20   Control 10.186368
+## 21   Control 11.170881
+## 22   Control 11.784644
+## 23   Control  9.069160
+## 24   Control  9.802734
+## 25   Control 11.251387
+## 26 Treatment 43.294235
+## 27 Treatment 46.049249
+## 28 Treatment 43.827738
+## 29 Treatment 44.197391
+## 30 Treatment 44.638253
+## 31 Treatment 47.295449
+## 32 Treatment 44.464347
+## 33 Treatment 41.965703
+## 34 Treatment 45.296145
+## 35 Treatment 40.942366
+## 36 Treatment 42.797237
+## 37 Treatment 45.250808
+## 38 Treatment 49.015239
+## 39 Treatment 44.348696
+## 40 Treatment 44.747482
+## 41 Treatment 44.262052
+## 42 Treatment 49.311574
+## 43 Treatment 44.393520
+## 44 Treatment 43.776127
+## 45 Treatment 45.508652
+## 46 Treatment 47.106560
+## 47 Treatment 46.340907
+## 48 Treatment 42.986695
+## 49 Treatment 41.927759
+## 50 Treatment 47.503000</code></pre>
 <pre class="r"><code>simData &lt;- function(m1=10, m2=45){
   Type &lt;- c(rep(&quot;Control&quot;, 25), rep(&quot;Treatment&quot;, 25))
   Value &lt;- c(rnorm(25, mean=m1, sd=1.5), rnorm(25, mean=m2, sd=2))
@@ -441,144 +441,141 @@ df</code></pre>
 }
 simData()</code></pre>
 <pre><code>##         Type     Value
-## 1    Control 12.356456
-## 2    Control 11.887140
-## 3    Control 12.771007
-## 4    Control 10.069431
-## 5    Control 11.115390
-## 6    Control  9.863596
-## 7    Control  9.621919
-## 8    Control 10.477848
-## 9    Control  9.364512
-## 10   Control  6.933869
-## 11   Control  9.597049
-## 12   Control  8.963694
-## 13   Control  8.518847
-## 14   Control 12.681928
-## 15   Control  9.707860
-## 16   Control  5.330808
-## 17   Control  6.722641
-## 18   Control 10.638523
-## 19   Control 10.254365
-## 20   Control 10.183178
-## 21   Control 11.822173
-## 22   Control  9.539576
-## 23   Control  9.945042
-## 24   Control  8.917836
-## 25   Control 11.622949
-## 26 Treatment 44.929598
-## 27 Treatment 45.205119
-## 28 Treatment 42.813068
-## 29 Treatment 46.106822
-## 30 Treatment 41.607926
-## 31 Treatment 45.970637
-## 32 Treatment 45.438435
-## 33 Treatment 43.524154
-## 34 Treatment 45.066592
-## 35 Treatment 46.644380
-## 36 Treatment 44.262294
-## 37 Treatment 38.514486
-## 38 Treatment 50.444325
-## 39 Treatment 43.951624
-## 40 Treatment 43.758261
-## 41 Treatment 44.636834
-## 42 Treatment 44.518752
-## 43 Treatment 48.452501
-## 44 Treatment 44.401395
-## 45 Treatment 43.070178
-## 46 Treatment 43.464447
-## 47 Treatment 45.949234
-## 48 Treatment 43.780150
-## 49 Treatment 41.733432
-## 50 Treatment 42.461395</code></pre>
+## 1    Control 11.563045
+## 2    Control 10.408431
+## 3    Control  7.577630
+## 4    Control  8.467900
+## 5    Control 10.543469
+## 6    Control 10.348351
+## 7    Control  7.793575
+## 8    Control 11.704787
+## 9    Control 12.100198
+## 10   Control 11.669106
+## 11   Control 12.004857
+## 12   Control  9.756114
+## 13   Control  9.040505
+## 14   Control 10.480101
+## 15   Control  8.547303
+## 16   Control 11.211960
+## 17   Control  9.526000
+## 18   Control  7.365670
+## 19   Control  8.816807
+## 20   Control  8.218388
+## 21   Control 10.485547
+## 22   Control  9.999639
+## 23   Control 12.284602
+## 24   Control 11.193896
+## 25   Control 10.238780
+## 26 Treatment 44.445895
+## 27 Treatment 45.584079
+## 28 Treatment 44.565583
+## 29 Treatment 40.146443
+## 30 Treatment 46.192393
+## 31 Treatment 43.149404
+## 32 Treatment 45.870476
+## 33 Treatment 48.749497
+## 34 Treatment 46.268152
+## 35 Treatment 44.015240
+## 36 Treatment 42.338741
+## 37 Treatment 46.254442
+## 38 Treatment 43.949999
+## 39 Treatment 42.922868
+## 40 Treatment 46.350168
+## 41 Treatment 43.983082
+## 42 Treatment 42.670044
+## 43 Treatment 42.507846
+## 44 Treatment 49.454311
+## 45 Treatment 41.284336
+## 46 Treatment 46.141119
+## 47 Treatment 43.571481
+## 48 Treatment 43.621064
+## 49 Treatment 43.341390
+## 50 Treatment 45.933972</code></pre>
 </div>
 <div id="section-1" class="section level3">
 <h3>2</h3>
 <pre class="r"><code>output &lt;- simData()
 output</code></pre>
 <pre><code>##         Type     Value
-## 1    Control  9.903887
-## 2    Control 11.372516
-## 3    Control  8.560474
-## 4    Control  8.041286
-## 5    Control  7.902951
-## 6    Control 10.215810
-## 7    Control 12.049721
-## 8    Control  9.524520
-## 9    Control 11.657091
-## 10   Control 10.252266
-## 11   Control  8.591836
-## 12   Control  9.142899
-## 13   Control 11.531389
-## 14   Control 11.705793
-## 15   Control 10.775340
-## 16   Control  9.400681
-## 17   Control 11.457927
-## 18   Control 10.795641
-## 19   Control 14.706040
-## 20   Control 13.293526
-## 21   Control 10.990157
-## 22   Control 10.363380
-## 23   Control 11.027078
-## 24   Control 10.234680
-## 25   Control  8.697170
-## 26 Treatment 45.613915
-## 27 Treatment 45.454249
-## 28 Treatment 43.634115
-## 29 Treatment 44.100427
-## 30 Treatment 48.312955
-## 31 Treatment 43.268474
-## 32 Treatment 46.097798
-## 33 Treatment 46.668629
-## 34 Treatment 48.625510
-## 35 Treatment 44.478502
-## 36 Treatment 38.633316
-## 37 Treatment 45.550578
-## 38 Treatment 42.702291
-## 39 Treatment 45.049904
-## 40 Treatment 46.007980
-## 41 Treatment 48.278775
-## 42 Treatment 44.481010
-## 43 Treatment 44.887742
-## 44 Treatment 48.902810
-## 45 Treatment 46.312059
-## 46 Treatment 42.094019
-## 47 Treatment 46.139663
-## 48 Treatment 43.804667
-## 49 Treatment 45.551561
-## 50 Treatment 43.653042</code></pre>
+## 1    Control 11.543506
+## 2    Control 11.307081
+## 3    Control  9.961243
+## 4    Control  8.867253
+## 5    Control  9.321379
+## 6    Control  8.174412
+## 7    Control 12.440922
+## 8    Control  9.614279
+## 9    Control 11.865280
+## 10   Control  8.333721
+## 11   Control  8.991071
+## 12   Control  7.655824
+## 13   Control  8.865339
+## 14   Control 10.322085
+## 15   Control  9.817661
+## 16   Control 10.837448
+## 17   Control  8.688956
+## 18   Control 10.893900
+## 19   Control  9.596713
+## 20   Control 12.618666
+## 21   Control  9.957058
+## 22   Control 11.448624
+## 23   Control  7.679755
+## 24   Control  9.441453
+## 25   Control  8.611252
+## 26 Treatment 44.803279
+## 27 Treatment 45.951844
+## 28 Treatment 44.934318
+## 29 Treatment 46.131545
+## 30 Treatment 44.876814
+## 31 Treatment 45.194427
+## 32 Treatment 46.769590
+## 33 Treatment 45.382629
+## 34 Treatment 44.523632
+## 35 Treatment 49.208610
+## 36 Treatment 44.995317
+## 37 Treatment 44.648508
+## 38 Treatment 45.879375
+## 39 Treatment 48.447164
+## 40 Treatment 46.557265
+## 41 Treatment 44.862691
+## 42 Treatment 46.268968
+## 43 Treatment 42.367547
+## 44 Treatment 46.971960
+## 45 Treatment 43.953326
+## 46 Treatment 45.162195
+## 47 Treatment 43.188922
+## 48 Treatment 43.674813
+## 49 Treatment 46.328465
+## 50 Treatment 45.343431</code></pre>
 <pre class="r"><code>head(output)</code></pre>
 <pre><code>##      Type     Value
-## 1 Control  9.903887
-## 2 Control 11.372516
-## 3 Control  8.560474
-## 4 Control  8.041286
-## 5 Control  7.902951
-## 6 Control 10.215810</code></pre>
+## 1 Control 11.543506
+## 2 Control 11.307081
+## 3 Control  9.961243
+## 4 Control  8.867253
+## 5 Control  9.321379
+## 6 Control  8.174412</code></pre>
 </div>
 <div id="section-2" class="section level3">
 <h3>3</h3>
 <pre class="r"><code>test &lt;- aov(Value~Type, output)
 summary(test)</code></pre>
 <pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)    
-## Type         1  15003   15003    3898 &lt;2e-16 ***
-## Residuals   48    185       4                   
+## Type         1  15827   15827    7375 &lt;2e-16 ***
+## Residuals   48    103       2                   
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code>testStats &lt;- function(data=output){
+  test &lt;- aov(Value~Type, data)
+  return(summary(test)[[1]][1, 5])
+}
+testStats()</code></pre>
+<pre><code>## [1] 3.282405e-54</code></pre>
 </div>
 <div id="section-3" class="section level3">
 <h3>4</h3>
-<pre class="r"><code>sum_test = unlist(summary(test))
-names(sum_test)</code></pre>
-<pre><code>##  [1] &quot;Df1&quot;      &quot;Df2&quot;      &quot;Sum Sq1&quot;  &quot;Sum Sq2&quot;  &quot;Mean Sq1&quot; &quot;Mean Sq2&quot;
-##  [7] &quot;F value1&quot; &quot;F value2&quot; &quot;Pr(&gt;F)1&quot;  &quot;Pr(&gt;F)2&quot;</code></pre>
-<pre class="r"><code>sum_test[&quot;Pr(&gt;F)1&quot;]</code></pre>
-<pre><code>##      Pr(&gt;F)1 
-## 1.270766e-47</code></pre>
-<pre class="r"><code>summary(test)[[1]][[&quot;Pr(&gt;F)&quot;]][1]</code></pre>
-<pre><code>## [1] 1.270766e-47</code></pre>
 <pre class="r"><code>summary(test)[[1]][1, 5]</code></pre>
-<pre><code>## [1] 1.270766e-47</code></pre>
+<pre><code>## [1] 3.282405e-54</code></pre>
 </div>
 
 

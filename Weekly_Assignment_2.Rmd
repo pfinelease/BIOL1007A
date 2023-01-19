@@ -40,17 +40,19 @@ head(output)
 ```{r}
 test <- aov(Value~Type, output)
 summary(test)
+
+testStats <- function(data=output){
+  test <- aov(Value~Type, data)
+  return(summary(test)[[1]][1, 5])
+}
+testStats()
 ```
 
 ### 4  
 
 ```{r}
-sum_test = unlist(summary(test))
-names(sum_test)
-sum_test["Pr(>F)1"]
-
-summary(test)[[1]][["Pr(>F)"]][1]
 
 summary(test)[[1]][1, 5]
+
 ```
 

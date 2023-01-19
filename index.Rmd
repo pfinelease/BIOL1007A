@@ -7,6 +7,10 @@ output:
     theme: tactile
     highlight: github
 ---
+<font size="2"> This page was created by a Middlebury College Student for the J-term class, "Reproducible Biology in R." My classmates and I are learning to use RStudio to analyze data and create reproducible tests. I have no prior experience with R and am enjoying the challenges and rewards that it presents! </font>
+
+![Middlebury Panthers](http://www.nicholasmoegly.com/wp-content/uploads/2017/04/Nicholas-Moegly-Middlebury-Mascot-Logo.jpg)
+--- 
 
 ## Daily Assignments 
 
