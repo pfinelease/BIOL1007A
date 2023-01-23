@@ -69,15 +69,14 @@ print(iris5)
 In these exercises, you have successively modified different versions of the data frame iris1 iris2 iris3 iris4 iris5. At each stage, the output data frame from one operation serves as the input fro the next. A more efficient way to do this is to use the pipe operator %>% from the tidyr package. Rework all of your previous statements (except for irisTab) into an extended piping operation that uses iris as the input and generates irisFinal as the output.
 
 ```{r}
-iris %>%
+iris_final <- iris %>%
   filter(Species == "virginica" | Species == "versicolor" , Sepal.Length>6 , Sepal.Width>2.5) %>%
   select(Species, Sepal.Length, Sepal.Width) %>%
   arrange(by = desc(Sepal.Length)) %>%
   mutate(sepal_area = Sepal.Length*Sepal.Width) %>%
   group_by(Species) %>%
  summarize(avg_sepal_length = mean(Sepal.Length), avg_sepal_width = mean(Sepal.Width), TotalNumber=n())
-  
-  
-  
+
+print(iris_final)
 ```
 
