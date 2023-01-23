@@ -13,7 +13,7 @@ n_dims
 myvec <- (1:n_dims^2)
 myvec
 
-myvec <- sample(myvec)
+myvec2 <- sample(myvec)
 myvec
 
 m <- matrix(data=myvec, ncol=n_dims, byrow=T)
