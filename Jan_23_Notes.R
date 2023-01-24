@@ -127,3 +127,5 @@ starwarsClean %>%
 # case_when() is useful for multiple if/ifelse statements 
 starwarsClean %>%
   mutate(sp = case_when(species=="Human" ~ "Human", T ~ "Non-Human")) # uses condition, puts "Human" if True in sp column, puts "Non ~Human" if it is False
+
+
