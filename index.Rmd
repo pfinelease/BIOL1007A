@@ -26,6 +26,8 @@ output:
 
 [Assignment 6](Assignment_6.html)
 
+[Assignment 7](Assignment_7.html)
+
 ## Weeekly Assignments
 
 [Weekly Assignment 1](Weekly_Assignment_1.html)

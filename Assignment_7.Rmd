@@ -1,0 +1,75 @@
+---
+title: "Assignment 7"
+author: "PFL"
+date: "2023-01-24"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+### 1
+
+Using the built-in starwars data set in the dplyr package, create a new tibble with the following modifications:
+
+-It only includes the species that have more than 1 individual represented in the data set. (hint: first use dplyr to summarize the number of individuals per species in the data frame; then create a vector/tibble of those names; subset the species that are included in that vector)
+
+-It only includes the columns that are not of type list (hint: use glimpse to check)
+
+```{r message=FALSE}
+library(dplyr)
+library(tidyverse)
+common_sw_species <- starwars %>%
+  group_by(species) %>%
+  count() %>%
+  arrange(desc(n))%>%
+  filter(n>1)
+common_sw_species
+
+ filteredsw<- starwars %>%
+  filter(species %in% common_sw_species$species) %>%
+  arrange(by=species) %>%
+  select(1:11)
+ filteredsw
+
+
+
+
+```
+
+### 2  
+Clean your data set: only include observations/rows that do not have an NA in the height column. Then, use dplyr to print a summary table showing the mean, median, and standard deviation of height for each species.
+
+```{r message=F}
+library(tidyr)
+
+filteredheight <- filteredsw[!is.na(filteredsw$height),] 
+anyNA(filteredheight$height)
+filteredheight
+
+filteredheight2 <- filteredsw[complete.cases(filteredsw$height),] 
+anyNA(filteredheight2$height)
+
+
+heightsummary <- filteredheight %>%
+  group_by(species) %>%
+  summarize(MeanHeight=mean(height), MedianHeight=median(height), StandardDeviation=sd(height))
+print(heightsummary)
+
+
+```
+
+### 3  
+Create a box plot figure that shows the variation in heights among Star Wars species. Do the values in your summary table line up with the plot? Code so that each box plot (Species) is be filled with a different color. Change your axes labels so that species is capitalized and height is capitalized and shows units (cm). Use a different theme option. Then look into the annotate or geom_text functions and add the text “p=1.2E-0.5” to the top right corner.
+
+```{r}
+library(ggplot2)
+library(viridisLite)
+
+p  <- ggplot(data = filteredheight, aes(y=height, x=species, fill=species)) + geom_boxplot() + xlab("Species") + ylab("Height (cm)") + scale_fill_manual(values=c("gold", "pink", "tan", "blue", "white", "red", "brown", "black", "green")) + theme_bw() + annotate("text", x=8, y=220, label="p=1.2E-0.5")
+
+
+p
+
+
+```
+
