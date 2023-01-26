@@ -11,9 +11,9 @@
 
 <meta name="author" content="PFL" />
 
-<meta name="date" content="2023-01-19" />
+<meta name="date" content="2023-01-26" />
 
-<title>Weekly Assignment 2</title>
+<title>Assignment 8</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -350,232 +350,429 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Weekly Assignment 2</h1>
+<h1 class="title toc-ignore">Assignment 8</h1>
 <h4 class="author">PFL</h4>
-<h4 class="date">2023-01-19</h4>
+<h4 class="date">2023-01-26</h4>
 
 </div>
 
 
-<div id="section" class="section level3">
-<h3>1</h3>
+<div id="code-reflection-weekly-assignment-2" class="section level1">
+<h1>Code Reflection (Weekly Assignment 2)</h1>
+<div id="step-1" class="section level2">
+<h2>Step 1</h2>
+<div id="my-code" class="section level5">
+<h5>My Code</h5>
 <pre class="r"><code>Type &lt;- c(rep(&quot;Control&quot;, 25), rep(&quot;Treatment&quot;, 25))
-Type</code></pre>
-<pre><code>##  [1] &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;  
-##  [7] &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;  
-## [13] &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;  
-## [19] &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;   &quot;Control&quot;  
-## [25] &quot;Control&quot;   &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot;
-## [31] &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot;
-## [37] &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot;
-## [43] &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot;
-## [49] &quot;Treatment&quot; &quot;Treatment&quot;</code></pre>
-<pre class="r"><code>Value &lt;- c(rnorm(25, mean=10, sd=1.5), rnorm(25, mean=45, sd=2))
-Value</code></pre>
-<pre><code>##  [1] 11.649516  9.738423  9.590898  8.239127 11.413388 11.681745  9.773200
-##  [8]  7.259707  5.921396 10.344107  9.855421  8.349772  7.889603 10.992580
-## [15]  8.015611 10.828841 10.546411  9.282222 10.522031  9.465792 10.580911
-## [22] 11.215911  9.852070  9.485817 10.287623 45.914610 47.637754 43.001049
-## [29] 44.698004 46.768951 45.354954 45.862907 47.924274 42.704001 46.955200
-## [36] 40.727444 43.788094 42.479187 41.836124 45.493206 44.852427 46.241809
-## [43] 44.531569 45.757605 43.094084 46.429368 44.874205 43.890365 46.923210
-## [50] 42.642106</code></pre>
-<pre class="r"><code>df &lt;- data.frame(Type, Value)
-df</code></pre>
-<pre><code>##         Type     Value
-## 1    Control 11.649516
-## 2    Control  9.738423
-## 3    Control  9.590898
-## 4    Control  8.239127
-## 5    Control 11.413388
-## 6    Control 11.681745
-## 7    Control  9.773200
-## 8    Control  7.259707
-## 9    Control  5.921396
-## 10   Control 10.344107
-## 11   Control  9.855421
-## 12   Control  8.349772
-## 13   Control  7.889603
-## 14   Control 10.992580
-## 15   Control  8.015611
-## 16   Control 10.828841
-## 17   Control 10.546411
-## 18   Control  9.282222
-## 19   Control 10.522031
-## 20   Control  9.465792
-## 21   Control 10.580911
-## 22   Control 11.215911
-## 23   Control  9.852070
-## 24   Control  9.485817
-## 25   Control 10.287623
-## 26 Treatment 45.914610
-## 27 Treatment 47.637754
-## 28 Treatment 43.001049
-## 29 Treatment 44.698004
-## 30 Treatment 46.768951
-## 31 Treatment 45.354954
-## 32 Treatment 45.862907
-## 33 Treatment 47.924274
-## 34 Treatment 42.704001
-## 35 Treatment 46.955200
-## 36 Treatment 40.727444
-## 37 Treatment 43.788094
-## 38 Treatment 42.479187
-## 39 Treatment 41.836124
-## 40 Treatment 45.493206
-## 41 Treatment 44.852427
-## 42 Treatment 46.241809
-## 43 Treatment 44.531569
-## 44 Treatment 45.757605
-## 45 Treatment 43.094084
-## 46 Treatment 46.429368
-## 47 Treatment 44.874205
-## 48 Treatment 43.890365
-## 49 Treatment 46.923210
-## 50 Treatment 42.642106</code></pre>
-<pre class="r"><code>simData &lt;- function(m1=10, m2=45){
+
+
+Value &lt;- c(rnorm(25, mean=10, sd=1.5), rnorm(25, mean=45, sd=2))
+
+
+df &lt;- data.frame(Type, Value)
+
+
+simData &lt;- function(m1=10, m2=45){
   Type &lt;- c(rep(&quot;Control&quot;, 25), rep(&quot;Treatment&quot;, 25))
   Value &lt;- c(rnorm(25, mean=m1, sd=1.5), rnorm(25, mean=m2, sd=2))
   df &lt;- data.frame(Type, Value)
   return(df)
 }
-simData()</code></pre>
-<pre><code>##         Type     Value
-## 1    Control  9.743118
-## 2    Control 10.085985
-## 3    Control  9.542111
-## 4    Control 11.080702
-## 5    Control 10.734616
-## 6    Control  9.304383
-## 7    Control 10.341519
-## 8    Control 11.436253
-## 9    Control  9.581661
-## 10   Control 11.493376
-## 11   Control  9.702348
-## 12   Control  9.569868
-## 13   Control  9.434191
-## 14   Control  8.070034
-## 15   Control 10.740719
-## 16   Control 10.486819
-## 17   Control  9.090633
-## 18   Control 12.189441
-## 19   Control 10.904729
-## 20   Control  7.871390
-## 21   Control  7.735382
-## 22   Control  9.753095
-## 23   Control  9.861548
-## 24   Control 10.129863
-## 25   Control 10.769207
-## 26 Treatment 45.517932
-## 27 Treatment 46.074962
-## 28 Treatment 47.298553
-## 29 Treatment 44.434675
-## 30 Treatment 47.225200
-## 31 Treatment 44.927207
-## 32 Treatment 42.506741
-## 33 Treatment 46.282475
-## 34 Treatment 45.515544
-## 35 Treatment 44.585789
-## 36 Treatment 43.840720
-## 37 Treatment 43.464667
-## 38 Treatment 44.984197
-## 39 Treatment 41.125881
-## 40 Treatment 47.063578
-## 41 Treatment 45.772009
-## 42 Treatment 43.015939
-## 43 Treatment 44.800171
-## 44 Treatment 42.900304
-## 45 Treatment 47.352663
-## 46 Treatment 45.184238
-## 47 Treatment 46.665812
-## 48 Treatment 50.099804
-## 49 Treatment 45.603591
-## 50 Treatment 48.203744</code></pre>
-</div>
-<div id="section-1" class="section level3">
-<h3>2</h3>
-<pre class="r"><code>output &lt;- simData()
-output</code></pre>
-<pre><code>##         Type     Value
-## 1    Control  9.898520
-## 2    Control 11.636213
-## 3    Control 10.226042
-## 4    Control 12.428084
-## 5    Control  7.659570
-## 6    Control  8.065436
-## 7    Control  8.998396
-## 8    Control  9.621274
-## 9    Control  9.481170
-## 10   Control 10.058465
-## 11   Control 10.299811
-## 12   Control  9.424425
-## 13   Control 11.846955
-## 14   Control  8.381196
-## 15   Control 10.108999
-## 16   Control 11.383640
-## 17   Control 11.514207
-## 18   Control 10.981741
-## 19   Control  5.678799
-## 20   Control  7.162145
-## 21   Control 11.082820
-## 22   Control  9.795858
-## 23   Control  9.451477
-## 24   Control  8.958465
-## 25   Control 11.148807
-## 26 Treatment 45.435805
-## 27 Treatment 41.796593
-## 28 Treatment 41.765187
-## 29 Treatment 46.261834
-## 30 Treatment 47.992990
-## 31 Treatment 42.804525
-## 32 Treatment 44.677160
-## 33 Treatment 46.306409
-## 34 Treatment 42.133977
-## 35 Treatment 45.504851
-## 36 Treatment 45.866213
-## 37 Treatment 43.967612
-## 38 Treatment 45.642948
-## 39 Treatment 46.583087
-## 40 Treatment 41.393261
-## 41 Treatment 43.424019
-## 42 Treatment 45.388952
-## 43 Treatment 46.117745
-## 44 Treatment 46.966565
-## 45 Treatment 47.428472
-## 46 Treatment 45.305615
-## 47 Treatment 44.430494
-## 48 Treatment 42.790678
-## 49 Treatment 43.128545
-## 50 Treatment 47.962815</code></pre>
-<pre class="r"><code>head(output)</code></pre>
+
+output &lt;- simData()
+
+
+head(output)</code></pre>
 <pre><code>##      Type     Value
-## 1 Control  9.898520
-## 2 Control 11.636213
-## 3 Control 10.226042
-## 4 Control 12.428084
-## 5 Control  7.659570
-## 6 Control  8.065436</code></pre>
+## 1 Control 12.407601
+## 2 Control 11.718764
+## 3 Control  8.648980
+## 4 Control  7.889864
+## 5 Control  9.040306
+## 6 Control 13.078185</code></pre>
 </div>
-<div id="section-2" class="section level3">
-<h3>3</h3>
+<div id="solution-code" class="section level5">
+<h5>Solution Code</h5>
+<pre class="r"><code>set.seed(123)
+simData &lt;- function(mean1=10, sd1=1.5, mean2=45, sd2=2, n=25){
+  
+  Type &lt;- rep(c(&quot;Control&quot;, &quot;Treatment&quot;), each = n)
+  Value &lt;- c(rnorm(n, mean = mean1, sd = sd1), rnorm(n, mean = mean2, sd = sd2))
+  dframe &lt;- data.frame(Type, Value)
+  return(dframe)
+}
+
+data&lt;-simData()
+
+head(data)</code></pre>
+<pre><code>##      Type     Value
+## 1 Control  9.159287
+## 2 Control  9.654734
+## 3 Control 12.338062
+## 4 Control 10.105763
+## 5 Control 10.193932
+## 6 Control 12.572597</code></pre>
+</div>
+<div id="comparison" class="section level3">
+<h3>Comparison</h3>
+<p>The solution code first sets.seed to make the data more reproducible.
+This function ensures that the when random numbers are generated in a
+code, the same numbers will be used when re-ran, therefore making the
+data reproducible. I did not include set.seed so my inputs and outputs
+will be different each time.</p>
+<p>The solution code is also more clean as all of the code is in a
+single function. I ran code before making a function. The solution code
+could be more versatile because it sets the amount of “Control” and
+“Treatment” equal to “n” which could therefore be changed. In my code,
+the amount of these will always be 25. The sample code could be adapted
+by simply changing “n” whereas in my code, I would have to change both
+values in the individual arguments.</p>
+<p>I would be able to change the mean of my data similar to the solution
+code because we both made the mean an argument in our functions.</p>
+<p>Overall, our code is essentially the same but the solution data is
+more clean because it utilizes more arguments within a single function.
+My function requires code to be run prior to the function.</p>
+</div>
+</div>
+<div id="step-2" class="section level2">
+<h2>Step 2</h2>
+<div id="my-code-1" class="section level5">
+<h5>My Code</h5>
 <pre class="r"><code>test &lt;- aov(Value~Type, output)
-summary(test)</code></pre>
-<pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)    
-## Type         1  15340   15340    4732 &lt;2e-16 ***
-## Residuals   48    156       3                   
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<pre class="r"><code>testStats &lt;- function(data=output){
+
+testStats &lt;- function(data=output){
   test &lt;- aov(Value~Type, data)
   return(summary(test)[[1]][1, 5])
 }
 testStats()</code></pre>
-<pre><code>## [1] 1.270262e-49</code></pre>
+<pre><code>## [1] 4.541139e-50</code></pre>
 </div>
-<div id="section-3" class="section level3">
-<h3>4</h3>
+<div id="solution-code-1" class="section level5">
+<h5>Solution Code</h5>
+<pre class="r"><code>myPval &lt;- function(df=NULL){
+  
+  test &lt;- aov(Value ~ Type, data=df)
+  testSummary &lt;- summary(test)
+  p_value &lt;- testSummary[[1]][[&quot;Pr(&gt;F)&quot;]][1]
+  return(p_value)
+}
+
+myPval(df=data)</code></pre>
+<pre><code>## [1] 1.183614e-51</code></pre>
+</div>
+<div id="comparison-1" class="section level3">
+<h3>Comparison</h3>
+<p>Again, our code is very similar but mine requires a line of code to
+be run before the function while the solution code relies solely on a
+single function. I am also noticing that I can improve upon naming my
+variables. As I am looking back on them, it is not immediately clear
+what the variable name is representing. Another difference is that the
+solution code refers to the location of the p-value in this step whereas
+I single out the location of the p-value in Step 3.</p>
+</div>
+</div>
+<div id="step-3" class="section level2">
+<h2>Step 3</h2>
+<div id="my-code-2" class="section level5">
+<h5>My Code</h5>
 <pre class="r"><code>summary(test)[[1]][1, 5]</code></pre>
-<pre><code>## [1] 1.270262e-49</code></pre>
+<pre><code>## [1] 4.541139e-50</code></pre>
+</div>
+<div id="solution-code-2" class="section level5">
+<h5>Solution Code</h5>
+<pre class="r"><code>myPval(simData())</code></pre>
+<pre><code>## [1] 7.541268e-53</code></pre>
+</div>
+<div id="comparison-2" class="section level3">
+<h3>Comparison</h3>
+<p>As noted above, I refer to the exact location of the p-value in this
+step. The solution code refers to the location in the function in Step 2
+and then calls for it here in this code. I am unsure if p-values are
+ever in different spots in data summary charts. If so, referring to an
+exact location in a table as I did may not be as reproducible as the
+solution code.</p>
+</div>
+</div>
+</div>
+<div id="code-reflection-assignment-6" class="section level1">
+<h1>Code Reflection (Assignment 6)</h1>
+<div id="step-1-1" class="section level2">
+<h2>Step 1</h2>
+<div id="my-code-3" class="section level5">
+<h5>My Code</h5>
+<pre class="r"><code>library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>str(iris)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    150 obs. of  5 variables:
+##  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
+##  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
+##  $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
+##  $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
+##  $ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+</div>
+<div id="solution-code-3" class="section level5">
+<h5>Solution Code</h5>
+<pre class="r"><code>library(dplyr)
+data(iris)
+glimpse(iris)</code></pre>
+<pre><code>## Rows: 150
+## Columns: 5
+## $ Sepal.Length &lt;dbl&gt; 5.1, 4.9, 4.7, 4.6, 5.0, 5.4, 4.6, 5.0, 4.4, 4.9, 5.4, 4.…
+## $ Sepal.Width  &lt;dbl&gt; 3.5, 3.0, 3.2, 3.1, 3.6, 3.9, 3.4, 3.4, 2.9, 3.1, 3.7, 3.…
+## $ Petal.Length &lt;dbl&gt; 1.4, 1.4, 1.3, 1.5, 1.4, 1.7, 1.4, 1.5, 1.4, 1.5, 1.5, 1.…
+## $ Petal.Width  &lt;dbl&gt; 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1, 0.2, 0.…
+## $ Species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setosa, s…</code></pre>
+</div>
+<div id="comparison-3" class="section level3">
+<h3>Comparison</h3>
+<p>No difference.</p>
+</div>
+</div>
+<div id="step-2-1" class="section level2">
+<h2>Step 2</h2>
+<div id="my-code-4" class="section level5">
+<h5>My Code</h5>
+<pre class="r"><code>iris1 &lt;- filter(iris, Species == &quot;virginica&quot; | Species == &quot;versicolor&quot; , Sepal.Length&gt;6 , Sepal.Width&gt;2.5)
+str(iris1)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    56 obs. of  5 variables:
+##  $ Sepal.Length: num  7 6.4 6.9 6.5 6.3 6.6 6.1 6.7 6.1 6.1 ...
+##  $ Sepal.Width : num  3.2 3.2 3.1 2.8 3.3 2.9 2.9 3.1 2.8 2.8 ...
+##  $ Petal.Length: num  4.7 4.5 4.9 4.6 4.7 4.6 4.7 4.4 4 4.7 ...
+##  $ Petal.Width : num  1.4 1.5 1.5 1.5 1.6 1.3 1.4 1.4 1.3 1.2 ...
+##  $ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 2 2 2 2 2 2 2 2 2 2 ...</code></pre>
+</div>
+<div id="solution-code-4" class="section level5">
+<h5>Solution Code</h5>
+<pre class="r"><code>iris1 &lt;- filter(iris, Species %in% c(&quot;virginica&quot;, &quot;versicolor&quot;), Sepal.Length &gt; 6, Sepal.Width &gt; 2.5)
+# or iris1 &lt;- filter(iris, Species == &quot;virginica&quot; | Species == &quot;versicolor&quot;, Sepal.Length &gt; 6, Sepal.Width &gt; 2.5)
+glimpse(iris1)</code></pre>
+<pre><code>## Rows: 56
+## Columns: 5
+## $ Sepal.Length &lt;dbl&gt; 7.0, 6.4, 6.9, 6.5, 6.3, 6.6, 6.1, 6.7, 6.1, 6.1, 6.4, 6.…
+## $ Sepal.Width  &lt;dbl&gt; 3.2, 3.2, 3.1, 2.8, 3.3, 2.9, 2.9, 3.1, 2.8, 2.8, 2.9, 3.…
+## $ Petal.Length &lt;dbl&gt; 4.7, 4.5, 4.9, 4.6, 4.7, 4.6, 4.7, 4.4, 4.0, 4.7, 4.3, 4.…
+## $ Petal.Width  &lt;dbl&gt; 1.4, 1.5, 1.5, 1.5, 1.6, 1.3, 1.4, 1.4, 1.3, 1.2, 1.3, 1.…
+## $ Species      &lt;fct&gt; versicolor, versicolor, versicolor, versicolor, versicolo…</code></pre>
+</div>
+<div id="comparison-4" class="section level3">
+<h3>Comparison</h3>
+<p>No difference.</p>
+</div>
+</div>
+<div id="step-3-1" class="section level2">
+<h2>Step 3</h2>
+<div id="my-code-5" class="section level5">
+<h5>My Code</h5>
+<pre class="r"><code>iris2 &lt;- select(iris1, Species, Sepal.Length, Sepal.Width)
+str(iris2)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    56 obs. of  3 variables:
+##  $ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 2 2 2 2 2 2 2 2 2 2 ...
+##  $ Sepal.Length: num  7 6.4 6.9 6.5 6.3 6.6 6.1 6.7 6.1 6.1 ...
+##  $ Sepal.Width : num  3.2 3.2 3.1 2.8 3.3 2.9 2.9 3.1 2.8 2.8 ...</code></pre>
+</div>
+<div id="solution-code-5" class="section level5">
+<h5>Solution Code</h5>
+<pre class="r"><code>iris2 &lt;- select(iris1, Species, Sepal.Length, Sepal.Width)
+glimpse(iris2)</code></pre>
+<pre><code>## Rows: 56
+## Columns: 3
+## $ Species      &lt;fct&gt; versicolor, versicolor, versicolor, versicolor, versicolo…
+## $ Sepal.Length &lt;dbl&gt; 7.0, 6.4, 6.9, 6.5, 6.3, 6.6, 6.1, 6.7, 6.1, 6.1, 6.4, 6.…
+## $ Sepal.Width  &lt;dbl&gt; 3.2, 3.2, 3.1, 2.8, 3.3, 2.9, 2.9, 3.1, 2.8, 2.8, 2.9, 3.…</code></pre>
+</div>
+<div id="comparison-5" class="section level3">
+<h3>Comparison</h3>
+<p>No difference.</p>
+</div>
+</div>
+<div id="step-4" class="section level2">
+<h2>Step 4</h2>
+<div id="my-code-6" class="section level5">
+<h5>My Code</h5>
+<pre class="r"><code>iris3 &lt;- arrange(iris2, by = desc(Sepal.Length)) 
+head(iris3)</code></pre>
+<pre><code>##     Species Sepal.Length Sepal.Width
+## 1 virginica          7.9         3.8
+## 2 virginica          7.7         3.8
+## 3 virginica          7.7         2.6
+## 4 virginica          7.7         2.8
+## 5 virginica          7.7         3.0
+## 6 virginica          7.6         3.0</code></pre>
+</div>
+<div id="solution-code-6" class="section level5">
+<h5>Solution Code</h5>
+<pre class="r"><code>iris3 &lt;- arrange(iris2, desc(Sepal.Length))
+head(iris3)</code></pre>
+<pre><code>##     Species Sepal.Length Sepal.Width
+## 1 virginica          7.9         3.8
+## 2 virginica          7.7         3.8
+## 3 virginica          7.7         2.6
+## 4 virginica          7.7         2.8
+## 5 virginica          7.7         3.0
+## 6 virginica          7.6         3.0</code></pre>
+</div>
+<div id="comparison-6" class="section level3">
+<h3>Comparison</h3>
+<p>No difference.</p>
+</div>
+</div>
+<div id="step-5" class="section level2">
+<h2>Step 5</h2>
+<div id="my-code-7" class="section level5">
+<h5>My Code</h5>
+<pre class="r"><code>iris4 &lt;- mutate(iris3, sepal_area = Sepal.Length*Sepal.Width)
+str(iris4)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    56 obs. of  4 variables:
+##  $ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 3 3 3 3 3 3 3 3 3 3 ...
+##  $ Sepal.Length: num  7.9 7.7 7.7 7.7 7.7 7.6 7.4 7.3 7.2 7.2 ...
+##  $ Sepal.Width : num  3.8 3.8 2.6 2.8 3 3 2.8 2.9 3.6 3.2 ...
+##  $ sepal_area  : num  30 29.3 20 21.6 23.1 ...</code></pre>
+</div>
+<div id="solution-code-7" class="section level5">
+<h5>Solution Code</h5>
+<pre class="r"><code>iris4 &lt;- mutate(iris3, Sepal.Area = Sepal.Length * Sepal.Width)
+glimpse(iris4)</code></pre>
+<pre><code>## Rows: 56
+## Columns: 4
+## $ Species      &lt;fct&gt; virginica, virginica, virginica, virginica, virginica, vi…
+## $ Sepal.Length &lt;dbl&gt; 7.9, 7.7, 7.7, 7.7, 7.7, 7.6, 7.4, 7.3, 7.2, 7.2, 7.2, 7.…
+## $ Sepal.Width  &lt;dbl&gt; 3.8, 3.8, 2.6, 2.8, 3.0, 3.0, 2.8, 2.9, 3.6, 3.2, 3.0, 3.…
+## $ Sepal.Area   &lt;dbl&gt; 30.02, 29.26, 20.02, 21.56, 23.10, 22.80, 20.72, 21.17, 2…</code></pre>
+</div>
+<div id="comparison-7" class="section level3">
+<h3>Comparison</h3>
+<p>No difference.</p>
+</div>
+</div>
+<div id="step-6" class="section level2">
+<h2>Step 6</h2>
+<div id="my-code-8" class="section level5">
+<h5>My Code</h5>
+<pre class="r"><code>irisTab &lt;- summarize(iris4, avg_sepal_length = mean(Sepal.Length), avg_sepal_width = mean(Sepal.Width), TotalNumber=n())
+print(irisTab)</code></pre>
+<pre><code>##   avg_sepal_length avg_sepal_width TotalNumber
+## 1         6.698214        3.041071          56</code></pre>
+</div>
+<div id="solution-code-8" class="section level5">
+<h5>Solution Code</h5>
+<pre class="r"><code>irisTab &lt;- summarize(iris4, avg.Sepal.Length = mean(Sepal.Length), avg.Sepal.Width = mean(Sepal.Width), Sample.Size = n())
+print(irisTab)</code></pre>
+<pre><code>##   avg.Sepal.Length avg.Sepal.Width Sample.Size
+## 1         6.698214        3.041071          56</code></pre>
+</div>
+<div id="comparison-8" class="section level3">
+<h3>Comparison</h3>
+<p>No difference.</p>
+</div>
+</div>
+<div id="step-7" class="section level2">
+<h2>Step 7</h2>
+<div id="my-code-9" class="section level5">
+<h5>My Code</h5>
+<pre class="r"><code>iris_species &lt;- group_by(iris4, Species)
+print(iris_species)</code></pre>
+<pre><code>## # A tibble: 56 × 4
+## # Groups:   Species [2]
+##    Species   Sepal.Length Sepal.Width Sepal.Area
+##    &lt;fct&gt;            &lt;dbl&gt;       &lt;dbl&gt;      &lt;dbl&gt;
+##  1 virginica          7.9         3.8       30.0
+##  2 virginica          7.7         3.8       29.3
+##  3 virginica          7.7         2.6       20.0
+##  4 virginica          7.7         2.8       21.6
+##  5 virginica          7.7         3         23.1
+##  6 virginica          7.6         3         22.8
+##  7 virginica          7.4         2.8       20.7
+##  8 virginica          7.3         2.9       21.2
+##  9 virginica          7.2         3.6       25.9
+## 10 virginica          7.2         3.2       23.0
+## # … with 46 more rows</code></pre>
+<pre class="r"><code>iris5 &lt;- summarize(iris_species, avg_sepal_length = mean(Sepal.Length), avg_sepal_width = mean(Sepal.Width), TotalNumber=n())
+print(iris5)</code></pre>
+<pre><code>## # A tibble: 2 × 4
+##   Species    avg_sepal_length avg_sepal_width TotalNumber
+##   &lt;fct&gt;                 &lt;dbl&gt;           &lt;dbl&gt;       &lt;int&gt;
+## 1 versicolor             6.48            2.99          17
+## 2 virginica              6.79            3.06          39</code></pre>
+</div>
+<div id="solution-code-9" class="section level5">
+<h5>Solution Code</h5>
+<pre class="r"><code>. &lt;- group_by(iris4, Species)
+iris5&lt;- summarize(., avg.Sepal.Length = mean(Sepal.Length), avg.Sepal.Width = mean(Sepal.Width), Sample.Size = n())
+print(iris5)</code></pre>
+<pre><code>## # A tibble: 2 × 4
+##   Species    avg.Sepal.Length avg.Sepal.Width Sample.Size
+##   &lt;fct&gt;                 &lt;dbl&gt;           &lt;dbl&gt;       &lt;int&gt;
+## 1 versicolor             6.48            2.99          17
+## 2 virginica              6.79            3.06          39</code></pre>
+</div>
+<div id="comparison-9" class="section level3">
+<h3>Comparison</h3>
+<p>The solution code saved the first code to a “.” which indicates that
+this is only a temporary variable.</p>
+</div>
+</div>
+<div id="step-8" class="section level2">
+<h2>Step 8</h2>
+<div id="my-code-10" class="section level5">
+<h5>My Code</h5>
+<pre class="r"><code>iris_final &lt;- iris %&gt;%
+  filter(Species == &quot;virginica&quot; | Species == &quot;versicolor&quot; , Sepal.Length&gt;6 , Sepal.Width&gt;2.5) %&gt;%
+  select(Species, Sepal.Length, Sepal.Width) %&gt;%
+  arrange(by = desc(Sepal.Length)) %&gt;%
+  mutate(sepal_area = Sepal.Length*Sepal.Width) %&gt;%
+  group_by(Species) %&gt;%
+ summarize(avg_sepal_length = mean(Sepal.Length), avg_sepal_width = mean(Sepal.Width), TotalNumber=n())
+
+print(iris_final)</code></pre>
+<pre><code>## # A tibble: 2 × 4
+##   Species    avg_sepal_length avg_sepal_width TotalNumber
+##   &lt;fct&gt;                 &lt;dbl&gt;           &lt;dbl&gt;       &lt;int&gt;
+## 1 versicolor             6.48            2.99          17
+## 2 virginica              6.79            3.06          39</code></pre>
+</div>
+<div id="solution-code-10" class="section level5">
+<h5>Solution Code</h5>
+<pre class="r"><code>irisFinal &lt;- iris %&gt;% 
+    filter(Species %in% c(&quot;virginica&quot;, &quot;versicolor&quot;), Sepal.Length &gt; 6, Sepal.Width &gt; 2.5) %&gt;%
+    select(Species, Sepal.Length, Sepal.Width) %&gt;%
+    arrange(desc(Sepal.Length)) %&gt;%
+    mutate(Sepal.Area = Sepal.Length * Sepal.Width) %&gt;%
+    group_by(Species) %&gt;%
+    summarize(avg.Sepal.Length = mean(Sepal.Length), avg.Sepal.Width = mean(Sepal.Width), Sample.Size = n())
+
+irisFinal</code></pre>
+<pre><code>## # A tibble: 2 × 4
+##   Species    avg.Sepal.Length avg.Sepal.Width Sample.Size
+##   &lt;fct&gt;                 &lt;dbl&gt;           &lt;dbl&gt;       &lt;int&gt;
+## 1 versicolor             6.48            2.99          17
+## 2 virginica              6.79            3.06          39</code></pre>
+<pre class="r"><code>### To make the calculations more suitable for piping, we would also want to use our mutated column for our summary and then arrange the final product:
+iris %&gt;% 
+    filter(Species %in% c(&quot;virginica&quot;, &quot;versicolor&quot;), Sepal.Length &gt; 6, Sepal.Width &gt; 2.5) %&gt;%
+    select(Species, Sepal.Length, Sepal.Width) %&gt;%
+    mutate(Sepal.Area = Sepal.Length * Sepal.Width) %&gt;%
+    group_by(Species) %&gt;%
+    summarize(avg.Sepal.Length = mean(Sepal.Length), avg.Sepal.Width = mean(Sepal.Width), avg.Sepal.Area = mean(Sepal.Area), Sample.Size = n()) %&gt;%
+    arrange(desc(avg.Sepal.Area)) </code></pre>
+<pre><code>## # A tibble: 2 × 5
+##   Species    avg.Sepal.Length avg.Sepal.Width avg.Sepal.Area Sample.Size
+##   &lt;fct&gt;                 &lt;dbl&gt;           &lt;dbl&gt;          &lt;dbl&gt;       &lt;int&gt;
+## 1 virginica              6.79            3.06           20.8          39
+## 2 versicolor             6.48            2.99           19.4          17</code></pre>
+</div>
+<div id="comparison-10" class="section level3">
+<h3>Comparison</h3>
+<p>My code does not organize by descending sepal area or use my mutated
+column (sepal area) in my summarize column.</p>
+</div>
+</div>
 </div>
 
 

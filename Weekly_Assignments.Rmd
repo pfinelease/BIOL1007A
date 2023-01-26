@@ -1,0 +1,13 @@
+---
+title: "Weekly Assignments"
+author: "PFL"
+date: "2023-01-26"
+output:
+  prettydoc::html_pretty:
+    theme: tactile
+    highlight: github
+---
+
+[Weekly Assignment 1](Weekly_Assignment_1.html)
+
+[Weekly Assignment 2](Weekly_Assignment_2.html)

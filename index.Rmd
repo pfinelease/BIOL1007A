@@ -12,27 +12,12 @@ output:
 ![Middlebury Panthers](http://www.nicholasmoegly.com/wp-content/uploads/2017/04/Nicholas-Moegly-Middlebury-Mascot-Logo.jpg)
 --- 
 
-## Daily Assignments 
+## [Daily Assignments](Daily_Assignments.html)
 
-[Assignment 1](Assignment_1.html)
 
-[Assignment 2](Assignment_2.html) 
 
-[Assignment 3](Assignment_3.html)
+## [Weekly Assignments](Weekly_Assignments.html)
 
-[Assignment 4](Assignment_4.html)
-
-[Assignment 5](Assignment_5.html)
-
-[Assignment 6](Assignment_6.html)
-
-[Assignment 7](Assignment_7.html)
-
-## Weeekly Assignments
-
-[Weekly Assignment 1](Weekly_Assignment_1.html)
-
-[Weekly Assignment 2](Weekly_Assignment_2.html)
 
 
 

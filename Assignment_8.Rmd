@@ -1,0 +1,283 @@
+---
+title: "Assignment 8"
+author: "PFL"
+date: "2023-01-26"
+output: html_document
+---
+# Code Reflection (Weekly Assignment 2)
+
+## Step 1
+
+##### My Code 
+```{r}
+Type <- c(rep("Control", 25), rep("Treatment", 25))
+
+
+Value <- c(rnorm(25, mean=10, sd=1.5), rnorm(25, mean=45, sd=2))
+
+
+df <- data.frame(Type, Value)
+
+
+simData <- function(m1=10, m2=45){
+  Type <- c(rep("Control", 25), rep("Treatment", 25))
+  Value <- c(rnorm(25, mean=m1, sd=1.5), rnorm(25, mean=m2, sd=2))
+  df <- data.frame(Type, Value)
+  return(df)
+}
+
+output <- simData()
+
+
+head(output)
+
+```
+
+##### Solution Code 
+```{r}
+set.seed(123)
+simData <- function(mean1=10, sd1=1.5, mean2=45, sd2=2, n=25){
+  
+  Type <- rep(c("Control", "Treatment"), each = n)
+  Value <- c(rnorm(n, mean = mean1, sd = sd1), rnorm(n, mean = mean2, sd = sd2))
+  dframe <- data.frame(Type, Value)
+  return(dframe)
+}
+
+data<-simData()
+
+head(data)
+```
+
+### Comparison
+The solution code first sets.seed to make the data more reproducible. This function ensures that the when random numbers are generated in a code, the same numbers will be used when re-ran, therefore making the data reproducible. I did not include set.seed so my inputs and outputs will be different each time. 
+
+The solution code is also more clean as all of the code is in a single function. I ran code before making a function. The solution code could be more versatile because it sets the amount of "Control" and "Treatment" equal to "n" which could therefore be changed. In my code, the amount of these will always be 25. The sample code could be adapted by simply changing "n" whereas in my code, I would have to change both values in the individual arguments. 
+
+I would be able to change the mean of my data similar to the solution code because we both made the mean an argument in our functions. 
+
+Overall, our code is essentially the same but the solution data is more clean because it utilizes more arguments within a single function. My function requires code to be run prior to the function. 
+
+
+## Step 2
+
+##### My Code
+```{r}
+test <- aov(Value~Type, output)
+
+testStats <- function(data=output){
+  test <- aov(Value~Type, data)
+  return(summary(test)[[1]][1, 5])
+}
+testStats()
+```
+
+##### Solution Code
+```{r}
+myPval <- function(df=NULL){
+  
+  test <- aov(Value ~ Type, data=df)
+  testSummary <- summary(test)
+  p_value <- testSummary[[1]][["Pr(>F)"]][1]
+  return(p_value)
+}
+
+myPval(df=data)
+```
+
+### Comparison
+Again, our code is very similar but mine requires a line of code to be run before the function while the solution code relies solely on a single function. 
+I am also noticing that I can improve upon naming my variables. As I am looking back on them, it is not immediately clear what the variable name is representing. 
+Another difference is that the solution code refers to the location of the p-value in this step whereas I single out the location of the p-value in Step 3. 
+
+
+## Step 3
+
+##### My Code
+```{r}
+
+summary(test)[[1]][1, 5]
+```
+
+##### Solution Code
+```{r}
+myPval(simData())
+```
+
+### Comparison
+As noted above, I refer to the exact location of the p-value in this step. The solution code refers to the location in the function in Step 2 and then calls for it here in this code. I am unsure if p-values are ever in different spots in data summary charts. If so, referring to an exact location in a table as I did may not be as reproducible as the solution code. 
+
+
+
+# Code Reflection (Assignment 6)
+
+## Step 1
+
+##### My Code
+```{r}
+library(dplyr)
+str(iris)
+```
+
+##### Solution Code
+```{r}
+library(dplyr)
+data(iris)
+glimpse(iris)
+```
+
+### Comparison
+No difference.
+
+
+## Step 2
+
+##### My Code
+```{r}
+iris1 <- filter(iris, Species == "virginica" | Species == "versicolor" , Sepal.Length>6 , Sepal.Width>2.5)
+str(iris1)
+```
+
+##### Solution Code
+```{r}
+iris1 <- filter(iris, Species %in% c("virginica", "versicolor"), Sepal.Length > 6, Sepal.Width > 2.5)
+# or iris1 <- filter(iris, Species == "virginica" | Species == "versicolor", Sepal.Length > 6, Sepal.Width > 2.5)
+glimpse(iris1)
+```
+
+### Comparison
+No difference.
+
+
+## Step 3
+
+##### My Code
+```{r}
+iris2 <- select(iris1, Species, Sepal.Length, Sepal.Width)
+str(iris2)
+```
+
+##### Solution Code
+```{r}
+iris2 <- select(iris1, Species, Sepal.Length, Sepal.Width)
+glimpse(iris2)
+```
+
+### Comparison
+No difference. 
+
+
+## Step 4
+
+##### My Code
+```{r}
+iris3 <- arrange(iris2, by = desc(Sepal.Length)) 
+head(iris3)
+```
+
+##### Solution Code
+```{r}
+iris3 <- arrange(iris2, desc(Sepal.Length))
+head(iris3)
+```
+
+### Comparison
+No difference. 
+
+
+## Step 5
+
+##### My Code
+```{r}
+iris4 <- mutate(iris3, sepal_area = Sepal.Length*Sepal.Width)
+str(iris4)
+```
+
+##### Solution Code
+```{r}
+iris4 <- mutate(iris3, Sepal.Area = Sepal.Length * Sepal.Width)
+glimpse(iris4)
+```
+
+### Comparison
+No difference. 
+
+
+## Step 6
+
+##### My Code
+```{r}
+irisTab <- summarize(iris4, avg_sepal_length = mean(Sepal.Length), avg_sepal_width = mean(Sepal.Width), TotalNumber=n())
+print(irisTab)
+```
+
+##### Solution Code
+```{r}
+irisTab <- summarize(iris4, avg.Sepal.Length = mean(Sepal.Length), avg.Sepal.Width = mean(Sepal.Width), Sample.Size = n())
+print(irisTab)
+```
+
+### Comparison
+No difference. 
+
+
+## Step 7
+
+##### My Code
+```{r}
+iris_species <- group_by(iris4, Species)
+print(iris_species)
+iris5 <- summarize(iris_species, avg_sepal_length = mean(Sepal.Length), avg_sepal_width = mean(Sepal.Width), TotalNumber=n())
+print(iris5)
+```
+
+##### Solution Code
+```{r}
+. <- group_by(iris4, Species)
+iris5<- summarize(., avg.Sepal.Length = mean(Sepal.Length), avg.Sepal.Width = mean(Sepal.Width), Sample.Size = n())
+print(iris5)
+```
+
+### Comparison
+The solution code saved the first code to a "." which indicates that this is only a temporary variable. 
+
+
+## Step 8
+
+##### My Code
+```{r}
+iris_final <- iris %>%
+  filter(Species == "virginica" | Species == "versicolor" , Sepal.Length>6 , Sepal.Width>2.5) %>%
+  select(Species, Sepal.Length, Sepal.Width) %>%
+  arrange(by = desc(Sepal.Length)) %>%
+  mutate(sepal_area = Sepal.Length*Sepal.Width) %>%
+  group_by(Species) %>%
+ summarize(avg_sepal_length = mean(Sepal.Length), avg_sepal_width = mean(Sepal.Width), TotalNumber=n())
+
+print(iris_final)
+```
+
+##### Solution Code
+```{r}
+irisFinal <- iris %>% 
+    filter(Species %in% c("virginica", "versicolor"), Sepal.Length > 6, Sepal.Width > 2.5) %>%
+    select(Species, Sepal.Length, Sepal.Width) %>%
+    arrange(desc(Sepal.Length)) %>%
+    mutate(Sepal.Area = Sepal.Length * Sepal.Width) %>%
+    group_by(Species) %>%
+    summarize(avg.Sepal.Length = mean(Sepal.Length), avg.Sepal.Width = mean(Sepal.Width), Sample.Size = n())
+
+irisFinal
+
+### To make the calculations more suitable for piping, we would also want to use our mutated column for our summary and then arrange the final product:
+iris %>% 
+    filter(Species %in% c("virginica", "versicolor"), Sepal.Length > 6, Sepal.Width > 2.5) %>%
+    select(Species, Sepal.Length, Sepal.Width) %>%
+    mutate(Sepal.Area = Sepal.Length * Sepal.Width) %>%
+    group_by(Species) %>%
+    summarize(avg.Sepal.Length = mean(Sepal.Length), avg.Sepal.Width = mean(Sepal.Width), avg.Sepal.Area = mean(Sepal.Area), Sample.Size = n()) %>%
+    arrange(desc(avg.Sepal.Area)) 
+```
+
+### Comparison
+My code does not organize by descending sepal area or use my mutated column (sepal area) in my summarize column. 

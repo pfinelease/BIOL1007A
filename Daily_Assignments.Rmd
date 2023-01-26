@@ -1,0 +1,23 @@
+---
+title: "Daily Assignments"
+author: "PFL"
+date: "2023-01-26"
+output: 
+  prettydoc::html_pretty:
+    theme: tactile
+    highlight: github
+---
+
+[Assignment 1](Assignment_1.html)
+
+[Assignment 2](Assignment_2.html) 
+
+[Assignment 3](Assignment_3.html)
+
+[Assignment 4](Assignment_4.html)
+
+[Assignment 5](Assignment_5.html)
+
+[Assignment 6](Assignment_6.html)
+
+[Assignment 7](Assignment_7.html)
