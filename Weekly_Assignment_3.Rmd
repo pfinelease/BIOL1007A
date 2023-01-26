@@ -1,0 +1,15 @@
+---
+title: "Weekly Assignment 3"
+author: "PFL"
+date: "2023-01-26"
+output: html_document
+---
+
+
+```{r message=F}
+library(tidyverse)
+library(ggthemes)
+dryadData <- read.table(file = "Data/veysey:babbit_data_amphibians.csv", header = T, sep = ",")
+
+```
+

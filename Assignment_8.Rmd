@@ -281,3 +281,35 @@ iris %>%
 
 ### Comparison
 My code does not organize by descending sepal area or use my mutated column (sepal area) in my summarize column. 
+
+
+# Code Annotation 
+
+```{r message=F}
+library(tidyverse)
+library(ggthemes)
+dryadData <- read.table(file = "Data/veysey:babbit_data_amphibians.csv", header = T, sep = ",")
+dryadData$species<-factor(dryadData$species, labels=c("Spotted Salamander", "Wood Frog")) #creating 'labels' to use for the plot; first "" goes on the first plot
+str(dryadData$species)
+#class(dryadData$treatment)
+dryadData$treatment <- factor(dryadData$treatment, 
+                              levels=c("Reference",
+                                       "100m", "30m")) #gives the labels for the x axis; levels changes the orders for the groups; it appears as though nothing changes without the levels argument
+
+
+p<- ggplot(data=dryadData, # this is stating that we are using dryad data 
+           aes(x=interaction(wetland, treatment), #this is mapping the variables for each axis; groups wetland and treatment as group
+               y=count.total.adults, fill=factor(year))) + geom_bar(position="dodge", stat="identity", color="black")  + #without fill=factor(year), it seems like some data is deleted. The data stacks and turns all into one counting the adults for each area for y axis; without position=data, the data is stacked; without stat=identity, the code will not run; here, the color determines the outlining of each bar; geom_bar states that it is a bar graph
+  ylab("Number of breeding adults") + # labeling y axis 
+  xlab("") + #by leaving this blank, there is no x label
+  scale_y_continuous(breaks = c(0,100,200,300,400,500)) + #y axis should be broke up by 100s; changing this will change the numerical inputs on the
+  scale_x_discrete(labels=c("30 (Ref)", "124 (Ref)", "141 (Ref)", "25 (100m)","39 (100m)","55 (100m)","129 (100m)", "7 (30m)","19 (30m)","20 (30m)","59 (30m)")) + #this is labeling each specific x position
+  facet_wrap(~species, nrow=2, strip.position="right") + #indicates that species is what we are referencing; facet_wrap wraps 1 dimensional into 2 dimensional; nrow=2 makes 2 rows of graphs; when it is = 1, the graphs go side by side. anything other than 2 puts them side by side; strip.position changes the side of "Spotted Salamander" and "Wood Frog"
+  theme_few() + scale_fill_grey() + #nothing appears to change without theme_few(). changing the value in the () changes the font size of the numbers; without scale_fill_grey, the fill color inside of the bars become colorful 
+  theme(panel.background = element_rect(fill = 'gray94', color = 'black'), legend.position="top",  legend.title= element_blank(), axis.title.y = element_text(size=12, face="bold", colour = "black"), strip.text.y = element_text(size = 10, face="bold", colour = "black")) + 
+  guides(fill=guide_legend(nrow=1,byrow=T)) 
+#changing fill color changes the background color; legend position puts the legend on the top; leaving element_blank gives the legend no title; the size and face change the text size and structure on the side labels; nrow changes the amount of rows of the legend
+p
+
+```
+
