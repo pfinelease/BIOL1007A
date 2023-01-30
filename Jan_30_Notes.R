@@ -107,7 +107,7 @@ countDataLong
 ### Plot bar graph
 plot3 <- ggplot(data= countDataLong,
                 mapping=aes(x=Species, y=Count,, fill=Sex)) +
-  geom_bar(stat = "identity", position="dodge") + #plotts bars next to eachother
+  geom_bar(stat = "identity", position="dodge") + #plots bars next to eachother
   scale_fill_manual(values=c("darkslategrey", "midnightblue"))
 plot3
 
