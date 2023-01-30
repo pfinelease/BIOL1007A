@@ -3,13 +3,53 @@ title: "Weekly Assignment 3"
 author: "PFL"
 date: "2023-01-26"
 output: html_document
+editor_options: 
+  chunk_output_type: console
 ---
 
 
 ```{r message=F}
 library(tidyverse)
 library(ggthemes)
+library(dplyr)
 dryadData <- read.table(file = "Data/veysey:babbit_data_amphibians.csv", header = T, sep = ",")
+view(dryadData)
+
+## use filter and mutate
+#make a variable that is no.recap over total 
+#call only the wood frogs
+
+recap.woodfrog <- dryadData %>%
+  select(c(species, treatment, count.total.adults, No.recap)) %>%
+  factor(dryadData$species, labels=c("Spotted Salamander", "Wood Frog")) %>%
+  subset.data.frame(species == "Wood Frog") %>%
+  replace(is.na(.),0) %>%
+  mutate(proportion = No.recap / count.total.adults)
+  view(recap.woodfrog)
+
+ 
+  
+print(recap.woodfrog)
+
+
+p<- ggplot(data=dryadData, # this is stating that we are using dryad data 
+           aes(x= treatment, #this is mapping the variables for each axis; groups wetland and treatment as group
+               y=count.total.adults, fill=factor(year))) + geom_bar(position="dodge", stat="identity", color="black")  + #without fill=factor(year), it seems like some data is deleted. The data stacks and turns all into one counting the adults for each area for y axis; without position=data, the data is stacked; without stat=identity, the code will not run; here, the color determines the outlining of each bar; geom_bar states that it is a bar graph
+  ylab("Proportion of recaptured wood frogs") + # labeling y axis 
+  xlab("") + #by leaving this blank, there is no x label
+  scale_y_continuous(breaks = c(0,0.1,0.2,0.3)) + 
+  scale_x_discrete(labels=c("Reference","100m", "30m")) + #this is labeling each specific x position
+  theme_few() + scale_fill_grey() + #nothing appears to change without theme_few(). changing the value in the () changes the font size of the numbers; without scale_fill_grey, the fill color inside of the bars become colorful 
+  theme(panel.background = element_rect(fill = 'gray94', color = 'black'), legend.position="top",  legend.title= element_blank(), axis.title.y = element_text(size=12, face="bold", colour = "black"), strip.text.y = element_text(size = 10, face="bold", colour = "black")) + 
+  guides(fill=guide_legend(nrow=1,byrow=T)) 
+#changing fill color changes the background color; legend position puts the legend on the top; leaving element_blank gives the legend no title; the size and face change the text size and structure on the side labels; nrow changes the amount of rows of the legend
+#in the factor function, when you specify "labels" you are changing their name; when you specify "levels" you change the order
+p
+
+
+
+
+
 
 ```
 

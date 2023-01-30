@@ -27,7 +27,7 @@ data(starwars)
 class(starwars)
 
 # tibble (tbl) : modern take on data frames
-# keeps great aspects of data frames and drops frustrating ones (cahnges variables)
+# keeps great aspects of data frames and drops frustrating ones (changes variables)
 
 glimpse(starwars) #much more clean than str(starwars)
 
@@ -56,7 +56,7 @@ b <- LETTERS[4:10]
 length(b)
 
 ##output of %in% depends on first vector
-a %in% b #is saying wether the values in a exhist in b
+a %in% b #is saying whether the values in a exhist in b
 
 b %in% a # all of the elements in b exhist in a
 

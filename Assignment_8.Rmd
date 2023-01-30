@@ -3,6 +3,8 @@ title: "Assignment 8"
 author: "PFL"
 date: "2023-01-26"
 output: html_document
+editor_options: 
+  chunk_output_type: console
 ---
 # Code Reflection (Weekly Assignment 2)
 
@@ -294,7 +296,7 @@ str(dryadData$species)
 #class(dryadData$treatment)
 dryadData$treatment <- factor(dryadData$treatment, 
                               levels=c("Reference",
-                                       "100m", "30m")) #gives the labels for the x axis; levels changes the orders for the groups; it appears as though nothing changes without the levels argument
+                                       "100m", "30m")) #gives the labels for the x axis; levels changes the orders for the groups
 
 
 p<- ggplot(data=dryadData, # this is stating that we are using dryad data 
@@ -309,6 +311,7 @@ p<- ggplot(data=dryadData, # this is stating that we are using dryad data
   theme(panel.background = element_rect(fill = 'gray94', color = 'black'), legend.position="top",  legend.title= element_blank(), axis.title.y = element_text(size=12, face="bold", colour = "black"), strip.text.y = element_text(size = 10, face="bold", colour = "black")) + 
   guides(fill=guide_legend(nrow=1,byrow=T)) 
 #changing fill color changes the background color; legend position puts the legend on the top; leaving element_blank gives the legend no title; the size and face change the text size and structure on the side labels; nrow changes the amount of rows of the legend
+#in the factor function, when you specify "labels" you are changing their name; when you specify "levels" you change the order
 p
 
 ```
