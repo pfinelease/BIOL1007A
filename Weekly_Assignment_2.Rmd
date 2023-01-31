@@ -17,9 +17,9 @@ Value
 df <- data.frame(Type, Value)
 df
 
-simData <- function(m1=10, m2=45){
-  Type <- c(rep("Control", 25), rep("Treatment", 25))
-  Value <- c(rnorm(25, mean=m1, sd=1.5), rnorm(25, mean=m2, sd=2))
+simData <- function(m1=10, m2=45, sd1=1.5, sd2=2, n=25){
+  Type <- rep(c("Control","Treatment"), each=n)
+  Value <- c(rnorm(n, mean=m1, sd=1.5), rnorm(n, mean=m2, sd=2))
   df <- data.frame(Type, Value)
   return(df)
 }

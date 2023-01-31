@@ -29,7 +29,7 @@ common_sw_species
   filter(species %in% common_sw_species$species) %>%
   arrange(by=species) %>%
   select(1:11)
- filteredsw
+ view(filteredsw)
 
 
 
@@ -71,5 +71,56 @@ p  <- ggplot(data = filteredheight, aes(y=height, x=species, fill=species)) + ge
 p
 
 
+```
+
+
+## Challenge 
+
+### 4  
+Using the same or a different built-in data set, create at least one additional (and different kind of) plot. Experiment with different arguments, features, and colors.
+
+```{r}
+library(tidyverse)
+library(ggthemes)
+library(dplyr)
+library(plotrix)
+library(ggplot2)
+view(starwars)
+starwars$hair_color <- factor(starwars$hair_color, levels=c("none","brown","black","white","blond","auburn","auburn, grey","auburn, white","blonde","brown, grey","grey","unknown"))
+
+
+haircolor <- starwars %>% 
+  select(c(name, hair_color)) %>%
+  na.omit(hair_color) %>%
+  arrange(hair_color) %>%
+  group_by(hair_color) %>%
+  count() %>%
+  arrange(desc(n))%>%
+  as_tibble
+           
+view(haircolor)
+
+hairplot <- ggplot(data=haircolor,
+                   aes(x= reorder(hair_color, -n), y=n, fill=hair_color)) + 
+  geom_bar(stat = "identity") +
+  ylab("Number of Charecters") +
+  xlab("Hair Color") + 
+  scale_fill_manual(values=c("lightsalmon","brown","black","white","burlywood2","red3","indianred4","brown1", "burlywood2",  "cornsilk3", "grey", "forestgreen" )) 
+  
+    
+hairplot + theme(panel.grid.major = element_blank(),
+             panel.grid.minor = element_blank(),
+             legend.position = "none")    
+
+
+```
+
+
+### 5  
+Finally, create a multi-panel figure with the graphs you created.
+
+```{r}
+library(patchwork)
+p / hairplot
 ```
 

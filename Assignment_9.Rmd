@@ -45,5 +45,32 @@ Use a for loop to repeat your previous functions from Weekly Assignment 2 (which
 ```{r}
 
 
+simData <- function(m1=10, m2=45, sd1=1.5, sd2=2, n=25){
+  Type <- rep(c("Control","Treatment"), each=n)
+  Value <- c(rnorm(n, mean=m1, sd=1.5), rnorm(n, mean=m2, sd=2))
+  df <- data.frame(Type, Value)
+  return(df)
+}
+
+output <- simData()
+
+test <- aov(Value~Type, output)
+summary(test)
+
+testStats <- function(data=output){
+  test <- aov(Value~Type, data)
+  return(summary(test)[[1]][1, 5])
+}
+pval <- summary(test)[[1]][1, 5]
+pval
+
+pVal_df <- data.frame(matrix(ncol = 2, nrow = 100))
+for (i in 1:100) {
+  outputfunction <- simData(m1=10, m2=45, sd1=1.5, sd2=2)
+  pvalue <- testStats(outputfunction)
+  pVal_df[i,1] <- i
+  pVal_df[i,2] <- pvalue
+}
+pVal_df
 ```
 

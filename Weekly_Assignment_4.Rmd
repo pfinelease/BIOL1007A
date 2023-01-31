@@ -1,0 +1,53 @@
+---
+title: "Weekly Assignment 4"
+author: "PFL"
+date: "2023-01-31"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+
+
+### Simulate a brand new data frame (the type of data is up to you) and conduct a statistical analysis in R using 2 variables. Create a basic ggplot that goes with the analysis.
+
+Is there a relationship between pine tree age and height in Loblolly?
+
+```{r message=F}
+library(tidyverse)
+library(ggthemes)
+library(dplyr)
+library(plotrix)
+library(ggplot2)
+data("Loblolly")
+print(Loblolly)
+
+pineTreeStats <- Loblolly %>%
+  select(c(height, age)) %>%
+  mutate(growthRate = height/age) 
+
+view(pineTreeStats)
+
+AvgGrowth <- pineTreeStats %>%
+  arrange(desc(age)) %>%
+  group_by(age) %>%
+  summarize(avgGR = mean(growthRate)) %>%
+  arrange(desc(avgGR))
+
+
+ ANOmodel <- aov(growthRate ~ factor(age), data=pineTreeStats)
+summary(ANOmodel)
+
+PinePlot <- ggplot(data=pineTreeStats, 
+                   aes(x=factor(age), y=growthRate, fill= factor(age))) +
+  xlab("Age (years)") +
+  ylab("Growth Rate (ft/yr)") + 
+  geom_boxplot() +
+  scale_fill_grey()
+
+PinePlot + theme(panel.grid.major = element_blank(),
+             panel.grid.minor = element_blank(),
+             legend.position = "none") 
+```
+
+Figure 1. The ANOVA test revealed that maximum growth rate occurs around 10 years of age for pine trees in Loblolly. 
