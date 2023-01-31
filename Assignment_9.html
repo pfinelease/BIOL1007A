@@ -357,7 +357,55 @@ display: none;
 </div>
 
 
+<div id="section" class="section level3">
+<h3>1</h3>
+<p>Using a for loop and an if statement, calculate the number of zeroes
+in a numeric vector. Before entering the loop, set up a vector of
+integers with some zero values. Then, set up a counter variable counter
+&lt;- 0. Inside the loop, add 1 to counter each time you have a zero in
+the vector. Finally, use print(counter) for the output.</p>
+<pre class="r"><code>x&lt;- rep(0:3, times=4)
+x[1]</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>counter &lt;- 0
 
+
+for(i in 1:length(x)){
+  if(x[i]==0){counter &lt;- counter + 1}
+}
+print(counter)</code></pre>
+<pre><code>## [1] 4</code></pre>
+</div>
+<div id="section-1" class="section level3">
+<h3>2</h3>
+<p>Write a function that takes as input two integers representing the
+number of rows and columns in a matrix. The output is a matrix of these
+dimensions in which each element is the product of the row number x the
+column number.</p>
+<pre class="r"><code>m &lt;- matrix(round(runif(20), digits = 2), nrow=5)
+
+for(i in 1:nrow(m)) {
+  for(j in 1:ncol(m)){
+  m[i,j] &lt;- i*j 
+  }
+}
+
+print(m)</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    1    2    3    4
+## [2,]    2    4    6    8
+## [3,]    3    6    9   12
+## [4,]    4    8   12   16
+## [5,]    5   10   15   20</code></pre>
+</div>
+<div id="section-2" class="section level3">
+<h3>3</h3>
+<p>Use a for loop to repeat your previous functions from Weekly
+Assignment 2 (which simulate a data frame and extract a p-value) 100
+times. Store the results in a data frame that has 1 column indicating
+the replicate number and 1 column for the p-values (a total of 2 columns
+and 100 rows).</p>
+</div>
 
 
 

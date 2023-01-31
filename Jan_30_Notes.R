@@ -201,11 +201,11 @@ for(j in 1:nrow(m)) {
 m
 
 
-#### loop over rows and columns
+#### loop over rows and columns **
 m <- matrix(round(runif(20), digits = 2), nrow=5)
 
 for(i in 1:nrow(m)) {
-  for(j in 1:nrow(m)){
+  for(j in 1:ncol(m)){
   m[i,j] <- m[i,j] + i + j 
   }
 }

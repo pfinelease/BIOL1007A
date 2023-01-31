@@ -27,10 +27,23 @@ print(counter)
 Write a function that takes as input two integers representing the number of rows and columns in a matrix. The output is a matrix of these dimensions in which each element is the product of the row number x the column number.
 
 ```{r}
+m <- matrix(round(runif(20), digits = 2), nrow=5)
 
+for(i in 1:nrow(m)) {
+  for(j in 1:ncol(m)){
+  m[i,j] <- i*j 
+  }
+}
 
+print(m)
 ```
 
 
 ### 3  
 Use a for loop to repeat your previous functions from Weekly Assignment 2 (which simulate a data frame and extract a p-value) 100 times. Store the results in a data frame that has 1 column indicating the replicate number and 1 column for the p-values (a total of 2 columns and 100 rows).
+
+```{r}
+
+
+```
+
