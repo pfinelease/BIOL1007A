@@ -1,0 +1,26 @@
+---
+title: "Final Project"
+author: "PFL"
+date: "2023-02-02"
+output: 
+  prettydoc::html_pretty:
+    theme: tactile
+    highlight: github
+---
+
+**My final project was to make a website that represents my sister's college recruiting profile. Here are the steps I took to make her [website](https://pfinelease.github.io/).**
+
+-----------------
+
+1. I first made a new repository on Github. I named it "pfinelease.github.io", the same as my Github username. This gave me greater abilities when customizing my webpage. 
+2. I then searched and tested many website themes to see which ones were user friendly and not too complicated. To download the theme, I opened a new project in RStudio. This made me a new folder in my desktop. I then went to the Github account that hosted the webpage template and clicked "Code" &rarr; "Download ZIP". This downloaded into my Finder. I then opened the downloaded folder and copied and pasted all of the files into my new project folder. 
+3. Each time I tried a new theme, I started by pushing it to Github to see if it worked/formatted correctly. The "Beautiful" package that I used can be found [here](https://github.com/daattali/beautiful-jekyll).
+4. With the help of Professor Ash, we explored the project in RStudio and found that this one was fairly simple to navigate and edit. While it took a lot of time, I was able to change the webpage title, links, pictures, text, and just about everything else you see on the page. 
+5. One of the most important parts of college athletic recruiting is the individual's video. Instead of trying to figure out how to call the video from my computer (there was difficulties due to the size, location, and type of file), I made a YouTube account and referred to the link in my code in order to give access to the videos. 
+6. Something very helpful that I learned while doing this was how to call pictures in RStudio. Because the photos on my local computer did not have links (or ones that I knew how to find at least), I was unsure of how to get them onto my page. While I do not know a lot about different kinds of files, I did notice that the photos that were pre-loaded with the website package were ".png" files. Through some trial and error, I found that screenshots are also ".png" files. I took screenshots of each of the photos that I wanted to use and dragged them into the folder that held all of the other photos. I then found [this video](https://www.youtube.com/watch?v=nvPOUdz5PL4). I highly recommend watching this video to learn how to call the photos. Basically, you create a repository and title it something that refers to using the README file for images. You then go to Issues &rarr; New Issues. Finally, drag your screenshot into the comment box and it will translate it into code that calls the photo. This was extremely helpful for me. 
+7. This project was very fulfilling. Through trial and error, I was able to explore RStudio and different kind of project and files. I learned a great deal in this class and am happy to contribute to my sister's college journey, as well as my own education.
+
+-------------------
+
+**Acknowledgements**
+Thank you to Professor Ash. Without your help, I would have created the same basic webpage that I also learned from you. I appreciate your extreme dedication to our class and taking so much extra time to help us learn. 

@@ -14,10 +14,12 @@ output:
 
 ## [Daily Assignments](Daily_Assignments.html)
 
-
+-----------
 
 ## [Weekly Assignments](Weekly_Assignments.html)
 
+------------
 
+## [Final Project](final_project.html)
 
 
